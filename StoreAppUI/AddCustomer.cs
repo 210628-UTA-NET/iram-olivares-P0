@@ -45,7 +45,7 @@ namespace StoreAppUI
             switch (input)
             {
                 case "0":
-                    this.ResetCustomer();
+                    this.ResetCustomer(); 
                     return AvailableMenu.StoreMenu;
                 case "1":
                     _customerBL.AddCustomer(_newCustomer);
