@@ -1,6 +1,7 @@
 using System;
 using SABL;
 using SAModels;
+using System.Threading;
 
 namespace StoreAppUI
 {
@@ -37,8 +38,12 @@ namespace StoreAppUI
             catch (System.Exception)
             {
                 Console.WriteLine("Customer Not Found!");
+                Thread.Sleep(1000);
+
+                return AvailableMenu.SearchForCustomer;
             }
 
+            Console.WriteLine(repoSearch);
             Console.ReadLine();
             return AvailableMenu.SearchForCustomer;
         }
