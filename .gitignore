@@ -2,3 +2,4 @@ bin
 obj
 Entities
 StoreAppUI/appsetting.json
+.vscode
