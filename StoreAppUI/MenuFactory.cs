@@ -32,6 +32,8 @@ namespace StoreAppUI
                     return new AddCustomer(new CustomerBL(new CustomerRepo(new ieoDemoDBContext(options))));
                 case AvailableMenu.ShowAllCustomers:
                     return new ShowAllCustomers(new CustomerBL(new CustomerRepo(new ieoDemoDBContext(options))));
+                case AvailableMenu.SearchForCustomer:
+                    return new SearchForCustomer(new CustomerBL(new CustomerRepo(new ieoDemoDBContext(options))));
                 default:
                     return null;
             }

@@ -12,6 +12,7 @@ namespace StoreAppUI
             Console.WriteLine("[0] Return to Main Menu");
             Console.WriteLine("[1] Add Customer");
             Console.WriteLine("[2] Show All Customers");
+            Console.WriteLine("[3] Search For a Customer");
         }
 
         public AvailableMenu ChooseMenu()
@@ -26,6 +27,8 @@ namespace StoreAppUI
                     return AvailableMenu.AddCustomer;
                 case "2":
                     return AvailableMenu.ShowAllCustomers;
+                case "3":
+                    return AvailableMenu.SearchForCustomer;
                 default:
                     Console.WriteLine("Invalid Input");
                     Thread.Sleep(1000);

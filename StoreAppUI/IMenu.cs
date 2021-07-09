@@ -8,7 +8,8 @@ namespace StoreAppUI
         MainMenu,
         StoreMenu,
         AddCustomer,
-        ShowAllCustomers
+        ShowAllCustomers,
+        SearchForCustomer
     }
     public interface IMenu{
         /// <summary>

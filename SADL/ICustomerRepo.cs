@@ -23,5 +23,12 @@ namespace SADL
         /// </summary>
         /// <returns> Returns the list of customers from the database </returns>
         List<Customer> GetAllCustomers();
+
+        /// <summary>
+        /// GetOneCustomer will search the database for a Customer
+        /// </summary>
+        /// <param name="p_customerEmail"> Takes an email string that will compare to all emails in the database </param>
+        /// <returns> Will return a Customer if found, null otherwise </returns>
+        Customer GetOneCustomer(string p_customerEmail);
     }
 }

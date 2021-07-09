@@ -43,5 +43,10 @@ namespace SADL
                     }
             ).ToList();
         }
+
+        public Model.Customer GetOneCustomer(string p_customerEmail)
+        {
+            return null;
+        }
     }
 }
