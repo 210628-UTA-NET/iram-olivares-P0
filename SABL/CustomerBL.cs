@@ -32,5 +32,10 @@ namespace SABL
         {
             return _customerRepo.GetAllCustomers();
         }
+
+        public Customer GetOneCustomer(string p_customerEmail)
+        {
+            return null;
+        }
     }
 }
