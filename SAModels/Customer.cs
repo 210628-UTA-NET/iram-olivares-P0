@@ -9,7 +9,7 @@ namespace SAModels
         public string Address { get; set; }
         public string Email { get; set; }
         public string Phone { get; set; }
-//        public List<Orders> customerOrders;
+        public List<Order> CustomerOrders { get; set; }
 
         public override string ToString()
         {
