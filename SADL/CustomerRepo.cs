@@ -46,7 +46,19 @@ namespace SADL
 
         public Model.Customer GetOneCustomer(string p_customerEmail)
         {
-            return null;
+            var test =  _context.Customers.Select(
+                customer => new Model.Customer()
+                    {
+                        Id = customer.Id,
+                        Name = customer.Name,
+                        Address = customer.Address,
+                        Email = customer.Email,
+                        Phone = customer.Phone
+                    }
+            ).Where(check => check.Email == p_customerEmail);
+
+            return test.SingleOrDefault();
+
         }
     }
 }

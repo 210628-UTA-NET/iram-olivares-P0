@@ -9,11 +9,6 @@ namespace SABL
     {
         private ICustomerRepo _customerRepo;
 
-        /// <summary>
-        /// Defining dependencies for the class' constructor
-        /// Using an interface as a parameter so that interchange is possible
-        /// </summary>
-        /// <param name="p_customerRepo"></param>
         public CustomerBL(ICustomerRepo p_customerRepo)
         {
             _customerRepo = p_customerRepo;
@@ -24,10 +19,6 @@ namespace SABL
             _customerRepo.AddCustomer(p_customer);
         }
 
-        /// <summary>
-        /// Get current list of customers
-        /// </summary>
-        /// <returns> Returns list of customers from the database that is implemented </returns>
         public List<Customer> GetAllCustomers()
         {
             return _customerRepo.GetAllCustomers();
@@ -35,7 +26,7 @@ namespace SABL
 
         public Customer GetOneCustomer(string p_customerEmail)
         {
-            return null;
+            return _customerRepo.GetOneCustomer(p_customerEmail);
         }
     }
 }

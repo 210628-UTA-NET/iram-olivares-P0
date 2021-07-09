@@ -1,12 +1,11 @@
 using System;
 using SABL;
+using SAModels;
 
 namespace StoreAppUI
 {
     public class SearchForCustomer : IMenu
     {
-        // Search database for a customer with the name matching _findCustomer
-        private string _findCustomer;
         
         private ICustomerBL _customerBL;
 
@@ -18,19 +17,30 @@ namespace StoreAppUI
         {
             Console.WriteLine("==== Search For A Customer ====");
             Console.WriteLine("[0] Return to Store Menu");
-            Console.Write("Insert Customer Name: ");
+            Console.Write("Insert Customer Email: ");
         }
         public AvailableMenu ChooseMenu()
         {
-            string input = Console.ReadLine();
-
-            switch(input)
+            string findMe = Console.ReadLine();
+            if (findMe.Equals("0"))
             {
-                case "0":
-                    return AvailableMenu.StoreMenu;
-                default :
-                    return AvailableMenu.SearchForCustomer;
+                return AvailableMenu.StoreMenu;
             }
+
+            Customer repoSearch = new Customer();
+
+            try
+            {
+                repoSearch = _customerBL.GetOneCustomer(findMe);
+                findMe.Equals(repoSearch.Email);
+            }
+            catch (System.Exception)
+            {
+                Console.WriteLine("Customer Not Found!");
+            }
+
+            Console.ReadLine();
+            return AvailableMenu.SearchForCustomer;
         }
     }
 }
