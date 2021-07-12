@@ -17,7 +17,9 @@ namespace StoreAppUI
         }
         public AvailableMenu ChooseMenu()
         {
-            throw new System.NotImplementedException();
+            Console.WriteLine("Enter Any Input to Return to Store Menu");
+            Console.ReadLine();
+            return AvailableMenu.StoreMenu;
         }
 
         public void CurrentMenu()
@@ -30,8 +32,6 @@ namespace StoreAppUI
             {
                 Console.WriteLine(item);
             }
-
-            Console.ReadLine();
         }
     }
 }
