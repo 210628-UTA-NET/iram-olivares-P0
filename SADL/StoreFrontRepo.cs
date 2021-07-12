@@ -46,11 +46,16 @@ namespace SADL
 
         public List<LineItem> ViewInventory(StoreFront p_store)
         {
-            var query = from item in _context.LineItems
+            var filterStore = from store in _context.Stores
+                        where store.StoreId == p_store.StoreID
+                        select new {StoreID = store.StoreId};
+
+            var inventory = from item in _context.LineItems
+                        join store in filterStore on item.LineItemStoreId equals store.StoreID
                         join product in _context.Products on item.LineItemProductId equals product.ProductId
                         select new Model.LineItem { Item = product.ProductName, Quantity = (int)item.LineItemQuantity };
 
-            return query.ToList();
+            return inventory.ToList();
         }
 
         public List<Order> ViewStoreOrderHistory(StoreFront p_store)

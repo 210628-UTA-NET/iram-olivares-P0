@@ -29,3 +29,8 @@ INSERT INTO LineItems VALUES
 -- Add a Third Store
 INSERT INTO Stores VALUES
 	('La Hacienda', '111 Wheat Way')
+	
+-- Add two items to the second store
+	INSERT INTO LineItems VALUES
+	(2, 6, 50),
+	(2, 11, 25)
