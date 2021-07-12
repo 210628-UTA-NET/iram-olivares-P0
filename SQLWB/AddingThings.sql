@@ -1,4 +1,4 @@
--- Add some store products
+-- Add some Products
 INSERT INTO Products(ProductName, ProductPrice) VALUES
 	('Small Harina Tortillas', 2.75),
 	('Large Harina Tortillas', 5.00),
@@ -18,6 +18,6 @@ INSERT INTO Stores VALUES
 	('Olivares Tortilla Factory', '127 Corn Road'),
 	('Los Amigos Tortilleria', '9987 Flour Street')
 
--- Add a customer
+-- Add a Customer
 INSERT INTO Customers VALUES
 	('Bobby', '112 Wick Way', 'mrmr@gogmail.com', '54856891458')
