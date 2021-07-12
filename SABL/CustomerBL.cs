@@ -28,5 +28,15 @@ namespace SABL
         {
             return _customerRepo.GetOneCustomer(p_customerEmail);
         }
+
+        public Order PlaceOrder(Customer p_customer, StoreFront p_store, List<LineItem> p_orderList)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Order> ViewCustomerOrderHistory(Customer p_customer)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
