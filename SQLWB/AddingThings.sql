@@ -21,3 +21,7 @@ INSERT INTO Stores VALUES
 -- Add a Customer
 INSERT INTO Customers VALUES
 	('Bobby', '112 Wick Way', 'mrmr@gogmail.com', '54856891458')
+
+-- Add an item to a store
+INSERT INTO LineItems VALUES
+	(1, 1, 100)

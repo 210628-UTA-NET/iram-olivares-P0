@@ -51,20 +51,32 @@ create table Products(
 	CONSTRAINT PK_ProductID PRIMARY KEY (ProductID),
 )
 
--- LineItem Table
--- Many LineItems to One Order (FK references OrderID)
+-- LineItem Table 
 -- Many LineItems to One Store (FK references StoreID)
 -- One LineItem to One Product (FK references ProductID)
 -- LineItemID to uniquely identify a LineItem
-create table LineItems(
+create table InventoryItems(
 	LineItemID int IDENTITY,
-	LineItem_OrderID int,
 	LineItem_StoreID int,
 	LineItem_ProductID int,
 	LineItemQuantity int,
 	
 	CONSTRAINT PK_LineItemID PRIMARY KEY (LineItemID),
-	CONSTRAINT FK_LineItem_OrderID FOREIGN KEY (LineItem_OrderID) REFERENCES Orders(OrderID),
 	CONSTRAINT FK_LineItem_StoreID FOREIGN KEY (LineItem_StoreID) REFERENCES Stores(StoreID),
 	CONSTRAINT FK_LineItem_ProductID FOREIGN KEY (LineItem_ProductID) REFERENCES Products(ProductID)
+)
+
+-- OrderItem Table
+-- Many OrderItems to One Order (FK references OrderID)
+-- One OrderItem to One Product (FK references ProductID)
+-- OrderItemID to uniquely identify an OrderItem
+create table OrderItems(
+	OrderItemID int IDENTITY,
+	OrderItem_OrderID int,
+	OrderItem_ProductID int,
+	OrderItemQuantity int,
+
+	CONSTRAINT PK_OrderItemID PRIMARY KEY (OrderItemID),
+	CONSTRAINT FK_OrderItem_OrderID FOREIGN KEY (OrderItem_OrderID) REFERENCES Orders(OrderID),
+	CONSTRAINT FK_OrderItem_ProductID FOREIGN KEY (OrderItem_ProductID) REFERENCES Products(ProductID)
 )
