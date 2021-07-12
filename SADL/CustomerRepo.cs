@@ -5,6 +5,7 @@ using System.Text.Json;
 using Model = SAModels;
 using Entity = SADL.Entities;
 using System.Linq;
+using SAModels;
 
 namespace SADL
 {
@@ -59,6 +60,16 @@ namespace SADL
 
             return test.SingleOrDefault();
 
+        }
+
+        public Order PlaceOrder(Customer p_customer, StoreFront p_store, List<LineItem> p_orderList)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Order> ViewCustomerOrderHistory(Customer p_customer)
+        {
+            throw new NotImplementedException();
         }
     }
 }
