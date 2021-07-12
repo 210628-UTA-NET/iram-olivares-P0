@@ -17,6 +17,11 @@ namespace SABL
             return _storeRepo.GetAllStores();
         }
 
+        public StoreFront GetOneStore(int p_storeID)
+        {
+            return _storeRepo.GetOneStore(p_storeID);
+        }
+
         public void ReplenishInventory(StoreFront p_store, LineItem p_item, int p_amount)
         {
             throw new System.NotImplementedException();
@@ -24,7 +29,7 @@ namespace SABL
 
         public List<LineItem> ViewInventory(StoreFront p_store)
         {
-            throw new System.NotImplementedException();
+            return _storeRepo.ViewInventory(p_store);
         }
 
         public List<Order> ViewStoreOrderHistory(StoreFront p_store)

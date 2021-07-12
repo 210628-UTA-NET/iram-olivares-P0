@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using System.Threading;
 using SABL;
 using SAModels;
@@ -40,6 +41,11 @@ namespace StoreAppUI
                 case "0":
                     return AvailableMenu.StoreMenu;
                 default: 
+                    if (Regex.IsMatch(input, @"^[0-9]+$"))
+                    {
+                        MenuFactory.chosenStore = Int32.Parse(input);
+                        return AvailableMenu.ShowStoreInventory;
+                    }
                     Console.WriteLine("Invalid Input");
                     Thread.Sleep(1000);
                     return AvailableMenu.ShowAllStores;

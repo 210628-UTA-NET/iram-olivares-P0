@@ -2,7 +2,12 @@ namespace SAModels
 {
     public class LineItem
     {
-        public Product Item { get; set; }
+        public string Item { get; set; }
         public int Quantity { get; set; }
+
+        public override string ToString()
+        {
+            return $"==================\nItem: {Item}\nQuantity: {Quantity}\n==================";
+        }
     }
 }

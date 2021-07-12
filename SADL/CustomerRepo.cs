@@ -45,7 +45,7 @@ namespace SADL
 
         public Model.Customer GetOneCustomer(string p_customerEmail)
         {
-            var test =  _context.Customers.Select(
+            return  _context.Customers.Select(
                 customer => new Model.Customer()
                     {
                         Id = customer.CustomerId,
@@ -54,10 +54,7 @@ namespace SADL
                         Email = customer.CustomerEmail,
                         Phone = customer.CustomerPhone
                     }
-            ).Where(check => check.Email == p_customerEmail);
-
-            return test.SingleOrDefault();
-
+            ).Where(check => check.Email == p_customerEmail).SingleOrDefault();
         }
 
         public Order PlaceOrder(Customer p_customer, StoreFront p_store, List<LineItem> p_orderList)

@@ -12,6 +12,13 @@ namespace SADL
         List<StoreFront> GetAllStores();
 
         /// <summary>
+        /// Retrieves a store from the database
+        /// </summary>
+        /// <param name="p_storeID"> ID as a parameter to extract the correct store </param>
+        /// <returns> Will return a store from the database </returns>
+        StoreFront GetOneStore(int p_storeID);
+
+        /// <summary>
         /// Allows the user to view a store's inventory
         /// </summary>
         /// <param name="p_store"> Takes in a store as a parameter </param>

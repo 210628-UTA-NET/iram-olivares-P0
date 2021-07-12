@@ -9,6 +9,8 @@ namespace StoreAppUI
 {
     public class MenuFactory : IMenuFactory
     {
+        public static int chosenStore;
+        public static int chosenCustomer;
         public IMenu GetMenu(AvailableMenu p_menu)
         {
             var configuration = new ConfigurationBuilder()
@@ -35,6 +37,8 @@ namespace StoreAppUI
                     return new SearchForCustomer(new CustomerBL(new CustomerRepo(new ieoDemoDBContext(options))));
                 case AvailableMenu.ShowAllStores:
                     return new ShowAllStores(new StoreFrontBL(new StoreFrontRepo(new ieoDemoDBContext(options))));
+                case AvailableMenu.ShowStoreInventory:
+                    return new ShowStoreInventory(chosenStore, new StoreFrontBL(new StoreFrontRepo(new ieoDemoDBContext(options))));
                 default:
                     return null;
             }
