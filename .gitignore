@@ -3,3 +3,4 @@ obj
 StoreAppUI/appsetting.json
 .vscode
 SADL/Entities/ieoDemoDBContext.cs
+SADL/Database
