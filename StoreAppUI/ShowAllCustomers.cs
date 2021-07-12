@@ -9,9 +9,9 @@ namespace StoreAppUI
     public class ShowAllCustomers : IMenu
     {
         private ICustomerBL _customerBL;
-        public ShowAllCustomers(ICustomerBL p_customer)
+        public ShowAllCustomers(ICustomerBL p_customerBL)
         {
-            _customerBL = p_customer;
+            _customerBL = p_customerBL;
         }
         public void CurrentMenu()
         {
@@ -25,6 +25,10 @@ namespace StoreAppUI
             }
 
             Console.WriteLine("[0] Return to Store Menu");
+            foreach (Customer customer in customers)
+            {
+                Console.WriteLine($"[{customer.Id}] View {customer.Name}'s Placed Orders");
+            }
         }
 
         public AvailableMenu ChooseMenu()

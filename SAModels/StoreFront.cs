@@ -5,6 +5,7 @@ namespace SAModels
 {
     public class StoreFront
     {
+        public int StoreID { get; set; }
         public string Name { get; set; }
         public string Address { get; set; }
         public List<LineItem> Inventory { get; set; }
@@ -12,7 +13,7 @@ namespace SAModels
 
         public override string ToString()
         {
-            return $"==================\nName: {Name}\nAddress: {Address}\n==================";
+            return $"==================\nID: {StoreID}\nName: {Name}\nAddress: {Address}\n==================";
         }
     }
 }

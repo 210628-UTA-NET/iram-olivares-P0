@@ -22,6 +22,7 @@ namespace SADL
                 store =>
                     new Model.StoreFront()
                     {
+                        StoreID = store.StoreId,
                         Name = store.StoreName,
                         Address = store.StoreAddress
                     }

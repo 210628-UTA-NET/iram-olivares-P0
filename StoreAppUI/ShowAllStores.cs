@@ -9,9 +9,9 @@ namespace StoreAppUI
     public class ShowAllStores : IMenu
     {
         private IStoreFrontBL _storeBL;
-        public ShowAllStores(IStoreFrontBL p_store)
+        public ShowAllStores(IStoreFrontBL p_storeBL)
         {
-            _storeBL = p_store;
+            _storeBL = p_storeBL;
         }
         public void CurrentMenu()
         {
@@ -25,6 +25,10 @@ namespace StoreAppUI
             }
 
             Console.WriteLine("[0] Return to Store Menu");
+            foreach (StoreFront store in stores)
+            {
+                Console.WriteLine($"[{store.StoreID}] View {store.Name}'s Inventory");
+            }
         }
 
         public AvailableMenu ChooseMenu()
