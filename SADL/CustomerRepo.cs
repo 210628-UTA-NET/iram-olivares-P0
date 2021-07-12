@@ -18,11 +18,11 @@ namespace SADL
         public void AddCustomer(Model.Customer p_customer)
         {
             _context.Customers.Add(new Entity.Customer{
-                Id = p_customer.Id,
-                Name = p_customer.Name,
-                Address = p_customer.Address,
-                Email = p_customer.Email,
-                Phone = p_customer.Phone
+                CustomerId = p_customer.Id,
+                CustomerName = p_customer.Name,
+                CustomerAddress = p_customer.Address,
+                CustomerEmail = p_customer.Email,
+                CustomerPhone = p_customer.Phone
             });
 
             _context.SaveChanges();
@@ -34,11 +34,11 @@ namespace SADL
                 customer =>
                     new Model.Customer()
                     {
-                        Id = customer.Id,
-                        Name = customer.Name,
-                        Address = customer.Address,
-                        Email = customer.Email,
-                        Phone = customer.Phone
+                        Id = customer.CustomerId,
+                        Name = customer.CustomerName,
+                        Address = customer.CustomerAddress,
+                        Email = customer.CustomerEmail,
+                        Phone = customer.CustomerPhone
 
                     }
             ).ToList();
@@ -49,11 +49,11 @@ namespace SADL
             var test =  _context.Customers.Select(
                 customer => new Model.Customer()
                     {
-                        Id = customer.Id,
-                        Name = customer.Name,
-                        Address = customer.Address,
-                        Email = customer.Email,
-                        Phone = customer.Phone
+                        Id = customer.CustomerId,
+                        Name = customer.CustomerName,
+                        Address = customer.CustomerAddress,
+                        Email = customer.CustomerEmail,
+                        Phone = customer.CustomerPhone
                     }
             ).Where(check => check.Email == p_customerEmail);
 
