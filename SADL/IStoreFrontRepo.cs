@@ -1,13 +1,9 @@
 using System.Collections.Generic;
 using SAModels;
 
-namespace SABL
+namespace SADL
 {
-    /// <summary>
-    /// Will handle all operations involving the Stores here
-    /// Any operation that accesses the database will be received through the DL
-    /// </summary>
-    public interface IStoreFrontBL
+    public interface IStoreFrontRepo
     {
         /// <summary>
         /// Allows user to recieve a list of all available stores
