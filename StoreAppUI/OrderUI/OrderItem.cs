@@ -1,4 +1,5 @@
 using System;
+using System.Threading;
 using SABL;
 using SAModels;
 
@@ -16,19 +17,34 @@ namespace StoreAppUI
         public AvailableMenu ChooseMenu()
         {
             string input = Console.ReadLine();
-            
-
-
-
-
-
-            return AvailableMenu.ExitApp;
+            switch (input)
+            {
+                case "0":
+                    return AvailableMenu.StoreMenu;
+                case "1":
+                    return AvailableMenu.ConfirmOrder;
+                case "a" or "A":
+                    return AvailableMenu.OrderItem;
+                case "b" or "B":
+                    return AvailableMenu.OrderItem;
+                default:
+                    Console.WriteLine("Invalid Input");
+                    Thread.Sleep(1000);
+                    return AvailableMenu.OrderItem;
+            }
         }
 
         public void CurrentMenu()
         {
+            Console.WriteLine("==== Order Menu ====");
+            Console.WriteLine("Customer: ");
+            Console.WriteLine("Ordering From: ");
+            Console.WriteLine("Checkout Items: ");
+            Console.WriteLine("Total Price: ");
             Console.WriteLine("[0] Return to Store Menu");
-            Console.Write("Insert Customer Email of Who Would Like to Order: ");
+            Console.WriteLine("[1] Proceed to Confirmation (All Fields Below Must be Filled)");
+            Console.WriteLine("[A] Add Item to Order");
+            Console.WriteLine("[B] Remove Item from Order");
         }
     }
 }

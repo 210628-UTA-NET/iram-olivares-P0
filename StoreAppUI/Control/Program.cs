@@ -64,6 +64,9 @@ namespace StoreAppUI
                     case AvailableMenu.ShowStoreInventory:
                         storeMenu = menuFactory.GetMenu(AvailableMenu.ShowStoreInventory);
                         break;
+                    case AvailableMenu.OrderSetup:
+                        storeMenu = menuFactory.GetMenu(AvailableMenu.OrderSetup);
+                        break;
                     case AvailableMenu.OrderItem:
                         storeMenu = menuFactory.GetMenu(AvailableMenu.OrderItem);
                         break;

@@ -7,9 +7,6 @@ namespace StoreAppUI
 {
     public class AddCustomer : IMenu
     {
-        // This Customer object will contain information about a customer to be added
-        private static Customer _newCustomer = new Customer();
-        private static string _checker;
 
         // Interface type to easily interchange which database will be used to save data
         private ICustomerBL _customerBL;
@@ -17,25 +14,16 @@ namespace StoreAppUI
         {
             _customerBL = p_customerBL;
         }
-
-        // sets the global _newCustomer to blank so information doesn't show where it is not needed
-        public void ResetCustomer()
-        {
-            _newCustomer.Name = "";
-            _newCustomer.Address = "";
-            _newCustomer.Email = "";
-            _newCustomer.Phone = "";
-        }
         public void CurrentMenu()
         {
             Console.WriteLine("==== Add Customer ====");
             Console.WriteLine("Select Option and Press Enter");
             Console.WriteLine("[0] Return to Store Menu Without Saving");
             Console.WriteLine("[1] Add Customer to List (All Fields Below Must Be Filled)");
-            Console.WriteLine("[A] Name: "+_newCustomer.Name);
-            Console.WriteLine("[B] Address: "+_newCustomer.Address);
-            Console.WriteLine("[C] Email: "+_newCustomer.Email);
-            Console.WriteLine("[D] Phone Number: "+_newCustomer.Phone);
+            Console.WriteLine("[A] Name: "+MenuFactory.tempCustomer.Name);
+            Console.WriteLine("[B] Address: "+MenuFactory.tempCustomer.Address);
+            Console.WriteLine("[C] Email: "+MenuFactory.tempCustomer.Email);
+            Console.WriteLine("[D] Phone Number: "+MenuFactory.tempCustomer.Phone);
         }
 
         public AvailableMenu ChooseMenu()
@@ -45,27 +33,27 @@ namespace StoreAppUI
             switch (input)
             {
                 case "0":
-                    this.ResetCustomer(); 
+                    MenuFactory.ResetParams(); 
                     return AvailableMenu.StoreMenu;
                 case "1":
-                    _customerBL.AddCustomer(_newCustomer);
-                    this.ResetCustomer();
+                    _customerBL.AddCustomer(MenuFactory.tempCustomer);
+                    MenuFactory.ResetParams();
                     return AvailableMenu.AddCustomer;
                 case "a" or "A" :
-                    _checker = Console.ReadLine();
-                    _newCustomer.Name = _checker;
+                    MenuFactory.checker = Console.ReadLine();
+                    MenuFactory.tempCustomer.Name = MenuFactory.checker;
                     return AvailableMenu.AddCustomer;
                 case "b" or "B" :
-                    _checker = Console.ReadLine();
-                    _newCustomer.Address = _checker;
+                    MenuFactory.checker = Console.ReadLine();
+                    MenuFactory.tempCustomer.Address = MenuFactory.checker;
                     return AvailableMenu.AddCustomer;
                 case "c" or "C" :
-                    _checker = Console.ReadLine();
-                    _newCustomer.Email = _checker;
+                    MenuFactory.checker = Console.ReadLine();
+                    MenuFactory.tempCustomer.Email = MenuFactory.checker;
                     return AvailableMenu.AddCustomer;
                 case "d" or "D" :
-                    _checker = Console.ReadLine();
-                    _newCustomer.Phone = _checker;
+                    MenuFactory.checker = Console.ReadLine();
+                    MenuFactory.tempCustomer.Phone = MenuFactory.checker;
                     return AvailableMenu.AddCustomer;
                 default:
                     Console.WriteLine("Invalid Input");

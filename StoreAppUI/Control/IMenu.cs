@@ -12,7 +12,9 @@ namespace StoreAppUI
         SearchForCustomer,
         ShowAllStores,
         ShowStoreInventory,
-        OrderItem
+        OrderItem,
+        OrderSetup,
+        ConfirmOrder
     }
     public interface IMenu{
         /// <summary>

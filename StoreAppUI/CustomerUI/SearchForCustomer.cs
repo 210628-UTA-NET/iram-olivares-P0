@@ -33,7 +33,6 @@ namespace StoreAppUI
             try
             {
                 repoSearch = _customerBL.GetOneCustomer(findMe);
-                MenuFactory.chosenCustomer = repoSearch.Id;
                 findMe.Equals(repoSearch.Email);
             }
             catch (System.Exception)

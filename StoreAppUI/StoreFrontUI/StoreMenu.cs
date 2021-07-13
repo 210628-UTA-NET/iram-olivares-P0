@@ -34,7 +34,7 @@ namespace StoreAppUI
                 case "4":
                     return AvailableMenu.ShowAllStores;
                 case "5":
-                    return AvailableMenu.OrderItem;
+                    return AvailableMenu.OrderSetup;
                 default:
                     Console.WriteLine("Invalid Input");
                     Thread.Sleep(1000);
