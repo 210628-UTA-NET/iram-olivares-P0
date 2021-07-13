@@ -24,26 +24,13 @@ namespace StoreAppUI
                 Console.WriteLine(customer);
             }
 
-            Console.WriteLine("[0] Return to Store Menu");
-            foreach (Customer customer in customers)
-            {
-                Console.WriteLine($"[{customer.Id}] View {customer.Name}'s Placed Orders");
-            }
+            Console.Write("Return to Store Menu With Any Key: ");
         }
 
         public AvailableMenu ChooseMenu()
         {
-            string input = Console.ReadLine();
-
-            switch(input)
-            {
-                case "0":
-                    return AvailableMenu.StoreMenu;
-                default: 
-                    Console.WriteLine("Invalid Input");
-                    Thread.Sleep(1000);
-                    return AvailableMenu.ShowAllCustomers;
-            }
+            Console.ReadLine();
+            return AvailableMenu.StoreMenu;
         }
     }
 }

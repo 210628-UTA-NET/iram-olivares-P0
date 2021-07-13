@@ -45,8 +45,7 @@ namespace StoreAppUI
             }
 
             Console.WriteLine(repoSearch);
-            Console.WriteLine("[1] Place an Order");
-            Console.WriteLine("Any Other Key to Return to Store Menu");
+            Console.WriteLine("[0] Return to Store Menu");
             string input = Console.ReadLine();
 
             switch(input)

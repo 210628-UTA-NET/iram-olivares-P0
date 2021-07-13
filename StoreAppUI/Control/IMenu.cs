@@ -17,7 +17,8 @@ namespace StoreAppUI
     public interface IMenu{
         /// <summary>
         /// CurrentMenu will describe the current menu state of the app
-        /// Will display all possible options and allow for user input to traverse the app
+        /// Will display all possible options
+        /// Does nothing but display the UI
         /// </summary>
         void CurrentMenu();
 
