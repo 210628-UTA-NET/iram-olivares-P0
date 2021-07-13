@@ -21,20 +21,14 @@ namespace SABL
         {
             return _storeRepo.GetOneStore(p_storeID);
         }
-
-        public void ReplenishInventory(StoreFront p_store, LineItem p_item, int p_amount)
+        public List<LineItem> ReplenishInventory(StoreFront p_store, LineItem p_item, int p_amount)
         {
-            throw new System.NotImplementedException();
+            return _storeRepo.ReplenishInventory(p_store, p_item, p_amount);
         }
 
         public List<LineItem> ViewInventory(StoreFront p_store)
         {
             return _storeRepo.ViewInventory(p_store);
-        }
-
-        public List<Order> ViewStoreOrderHistory(StoreFront p_store)
-        {
-            throw new System.NotImplementedException();
         }
     }
 }

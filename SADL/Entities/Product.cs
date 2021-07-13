@@ -10,6 +10,7 @@ namespace SADL.Entities
         public Product()
         {
             LineItems = new HashSet<LineItem>();
+            OrderItems = new HashSet<OrderItem>();
         }
 
         public int ProductId { get; set; }
@@ -17,5 +18,6 @@ namespace SADL.Entities
         public decimal? ProductPrice { get; set; }
 
         public virtual ICollection<LineItem> LineItems { get; set; }
+        public virtual ICollection<OrderItem> OrderItems { get; set; }
     }
 }

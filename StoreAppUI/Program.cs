@@ -64,6 +64,9 @@ namespace StoreAppUI
                     case AvailableMenu.ShowStoreInventory:
                         storeMenu = menuFactory.GetMenu(AvailableMenu.ShowStoreInventory);
                         break;
+                    case AvailableMenu.OrderItem:
+                        storeMenu = menuFactory.GetMenu(AvailableMenu.OrderItem);
+                        break;
                     default:
                         Console.WriteLine("Invalid Input");
                         Thread.Sleep(1000);

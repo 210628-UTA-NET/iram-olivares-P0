@@ -11,7 +11,8 @@ namespace StoreAppUI
         ShowAllCustomers,
         SearchForCustomer,
         ShowAllStores,
-        ShowStoreInventory
+        ShowStoreInventory,
+        OrderItem
     }
     public interface IMenu{
         /// <summary>

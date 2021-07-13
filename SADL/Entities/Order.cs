@@ -9,7 +9,7 @@ namespace SADL.Entities
     {
         public Order()
         {
-            LineItems = new HashSet<LineItem>();
+            OrderItems = new HashSet<OrderItem>();
         }
 
         public int OrderId { get; set; }
@@ -20,6 +20,6 @@ namespace SADL.Entities
 
         public virtual Customer OrderCustomer { get; set; }
         public virtual Store OrderStore { get; set; }
-        public virtual ICollection<LineItem> LineItems { get; set; }
+        public virtual ICollection<OrderItem> OrderItems { get; set; }
     }
 }

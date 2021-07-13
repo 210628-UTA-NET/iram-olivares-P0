@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using Model = SAModels;
 using Entity = SADL.Entities;
 using System.Linq;
 using SAModels;
@@ -14,24 +13,27 @@ namespace SADL
         {
             _context = p_context;
         }
-        public void AddCustomer(Model.Customer p_customer)
+        public Customer AddCustomer(Customer p_customer)
         {
-            _context.Customers.Add(new Entity.Customer{
+            var newCustomer = new Entity.Customer{
                 CustomerId = p_customer.Id,
                 CustomerName = p_customer.Name,
                 CustomerAddress = p_customer.Address,
                 CustomerEmail = p_customer.Email,
                 CustomerPhone = p_customer.Phone
-            });
+            };
+
+            _context.Customers.Add(newCustomer);
 
             _context.SaveChanges();
+
+            return p_customer;
         }
-        public List<Model.Customer> GetAllCustomers()
+        public List<Customer> GetAllCustomers()
         {
-            // Method Syntax Way
             return _context.Customers.Select(
                 customer =>
-                    new Model.Customer()
+                    new Customer()
                     {
                         Id = customer.CustomerId,
                         Name = customer.CustomerName,
@@ -43,10 +45,10 @@ namespace SADL
             ).ToList();
         }
 
-        public Model.Customer GetOneCustomer(string p_customerEmail)
+        public Customer GetOneCustomer(string p_customerEmail)
         {
             return  _context.Customers.Select(
-                customer => new Model.Customer()
+                customer => new Customer()
                     {
                         Id = customer.CustomerId,
                         Name = customer.CustomerName,
@@ -55,16 +57,6 @@ namespace SADL
                         Phone = customer.CustomerPhone
                     }
             ).Where(check => check.Email == p_customerEmail).SingleOrDefault();
-        }
-
-        public Order PlaceOrder(Customer p_customer, StoreFront p_store, List<LineItem> p_orderList)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<Order> ViewCustomerOrderHistory(Customer p_customer)
-        {
-            throw new NotImplementedException();
         }
     }
 }

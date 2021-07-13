@@ -33,6 +33,7 @@ namespace StoreAppUI
             try
             {
                 repoSearch = _customerBL.GetOneCustomer(findMe);
+                MenuFactory.chosenCustomer = repoSearch.Id;
                 findMe.Equals(repoSearch.Email);
             }
             catch (System.Exception)
@@ -44,8 +45,17 @@ namespace StoreAppUI
             }
 
             Console.WriteLine(repoSearch);
-            Console.ReadLine();
-            return AvailableMenu.SearchForCustomer;
+            Console.WriteLine("[1] Place an Order");
+            Console.WriteLine("Any Other Key to Return to Store Menu");
+            string input = Console.ReadLine();
+
+            switch(input)
+            {
+                case "1":
+                    return AvailableMenu.OrderItem;
+                default:
+                    return AvailableMenu.StoreMenu;
+            }
         }
     }
 }

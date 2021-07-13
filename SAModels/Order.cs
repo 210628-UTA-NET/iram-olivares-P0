@@ -5,6 +5,7 @@ namespace SAModels
 {
     public class Order
     {
+        public int ID { get; set; }
         List<LineItem> OrderItems { get; set; }
         public string OrderAddress { get; set; }
         public double Price { get; set; }

@@ -39,6 +39,8 @@ namespace StoreAppUI
                     return new ShowAllStores(new StoreFrontBL(new StoreFrontRepo(new ieoDemoDBContext(options))));
                 case AvailableMenu.ShowStoreInventory:
                     return new ShowStoreInventory(chosenStore, new StoreFrontBL(new StoreFrontRepo(new ieoDemoDBContext(options))));
+                case AvailableMenu.OrderItem:
+                    
                 default:
                     return null;
             }
