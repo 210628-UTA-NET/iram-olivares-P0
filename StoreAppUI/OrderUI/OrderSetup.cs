@@ -17,23 +17,61 @@ namespace StoreAppUI
         public AvailableMenu ChooseMenu()
         {
             string input = Console.ReadLine();
+            Customer checkCustomer = new Customer();
+            StoreFront checkStore = new StoreFront();
+
             switch(input)
             {
                 case "0":
-                    MenuFactory.ResetParams();
                     return AvailableMenu.StoreMenu;
                 case "1":
+                    if (MenuFactory.chosenStore == 0 || MenuFactory.chosenCustomer == "")
+                    {
+                        Console.WriteLine("Please Fill Out All Fields");
+                        Thread.Sleep(1000);
+                        return AvailableMenu.OrderSetup;
+                    }
+                    MenuFactory.dbInventory = _storeBL.ViewInventory(MenuFactory.tempStore);
                     return AvailableMenu.OrderItem;
+
                 case "a" or "A":
                     Console.Write("Enter Store ID Number: ");
-                    MenuFactory.checker = Console.ReadLine();
-                    MenuFactory.chosenStore = Int32.Parse(MenuFactory.checker);
+                    input = Console.ReadLine();
+                    try
+                    {
+                        MenuFactory.chosenStore = Int32.Parse(input);
+                    }
+                    catch(System.Exception)
+                    {
+                        Console.WriteLine("Please Enter an Existing Store ID");
+                        Thread.Sleep(1000);
+                        return AvailableMenu.OrderSetup;
+                    }
+                    checkStore = _storeBL.GetOneStore(MenuFactory.chosenStore);
+                    if(checkStore == null)
+                    {
+                        Console.WriteLine("Please Enter an Existing Store ID");
+                        MenuFactory.chosenStore = 0;
+                        Thread.Sleep(1000);
+                        return AvailableMenu.OrderSetup;
+                    }
+                    MenuFactory.tempStore = checkStore;
                     return AvailableMenu.OrderSetup;
+
                 case "b" or "B":
                     Console.Write("Enter Customer Email: ");
-                    MenuFactory.checker = Console.ReadLine();
-                    MenuFactory.chosenCustomer = MenuFactory.checker;
+                    input = Console.ReadLine();
+                    checkCustomer = _customerBL.GetOneCustomer(input);
+                    if (checkCustomer == null)
+                    {
+                        Console.WriteLine("Please Enter an Existing Customer's Email");
+                        Thread.Sleep(1000);
+                        return AvailableMenu.OrderSetup;
+                    }
+                    MenuFactory.chosenCustomer = input;
+                    MenuFactory.tempCustomer = checkCustomer;
                     return AvailableMenu.OrderSetup;
+
                 default:
                     Console.WriteLine("Invalid Input");
                     Thread.Sleep(1000);

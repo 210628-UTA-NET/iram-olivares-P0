@@ -24,6 +24,7 @@ namespace StoreAppUI
             Console.WriteLine("[B] Address: "+MenuFactory.tempCustomer.Address);
             Console.WriteLine("[C] Email: "+MenuFactory.tempCustomer.Email);
             Console.WriteLine("[D] Phone Number: "+MenuFactory.tempCustomer.Phone);
+            Console.Write("Enter Input: ");
         }
 
         public AvailableMenu ChooseMenu()
@@ -33,28 +34,38 @@ namespace StoreAppUI
             switch (input)
             {
                 case "0":
-                    MenuFactory.ResetParams(); 
                     return AvailableMenu.StoreMenu;
+
                 case "1":
                     _customerBL.AddCustomer(MenuFactory.tempCustomer);
-                    MenuFactory.ResetParams();
-                    return AvailableMenu.AddCustomer;
+                    Console.WriteLine("Customer Successfully Added!");
+                    Thread.Sleep(1000);
+                    return AvailableMenu.StoreMenu;
+
                 case "a" or "A" :
+                    Console.Write("Enter Customer Name: ");
                     MenuFactory.checker = Console.ReadLine();
                     MenuFactory.tempCustomer.Name = MenuFactory.checker;
                     return AvailableMenu.AddCustomer;
+
                 case "b" or "B" :
+                    Console.Write("Enter Customer Address: ");
                     MenuFactory.checker = Console.ReadLine();
                     MenuFactory.tempCustomer.Address = MenuFactory.checker;
                     return AvailableMenu.AddCustomer;
+
                 case "c" or "C" :
+                    Console.Write("Enter Customer Email: ");
                     MenuFactory.checker = Console.ReadLine();
                     MenuFactory.tempCustomer.Email = MenuFactory.checker;
                     return AvailableMenu.AddCustomer;
+
                 case "d" or "D" :
+                    Console.Write("Enter Customer Phone: ");
                     MenuFactory.checker = Console.ReadLine();
                     MenuFactory.tempCustomer.Phone = MenuFactory.checker;
                     return AvailableMenu.AddCustomer;
+
                 default:
                     Console.WriteLine("Invalid Input");
                     Thread.Sleep(1000);

@@ -26,6 +26,12 @@ namespace SADL
             ).ToList();
         }
 
+        public double GetItemPrice(LineItem p_item)
+        {
+            var data = _context.Products.Where(check => p_item.Item == check.ProductName).SingleOrDefault();
+            return (double)data.ProductPrice;
+        }
+
         public LineItem GetOneItem(string p_itemName, StoreFront p_store)
         {
             // first get the list of items from the given store
@@ -35,8 +41,10 @@ namespace SADL
             foreach(LineItem item in itemList)
             {
                 // if name matches, then return the item, otherwise null
-                if (item.Item == p_itemName)
+                if (item.Item.Equals(p_itemName))
+                {
                     return item;
+                }
             }
             return null;
         }
@@ -56,6 +64,7 @@ namespace SADL
         {
             // Get the corresponding item from the database
             var data = _context.LineItems.Where(item => item.LineItemId == p_item.ID).FirstOrDefault();
+            
             // Remove it from the database to be updated later
             _context.LineItems.Remove(data);
             // Update LineItem and save changes to database
@@ -66,6 +75,12 @@ namespace SADL
                 LineItemProductId = data.LineItemProductId,
                 LineItemQuantity = data.LineItemQuantity + p_amount
             };
+            
+            if (data.LineItemQuantity > p_item.Quantity)
+                {
+                    replenish.LineItemQuantity = p_item.Quantity;
+                }
+  
             _context.LineItems.Add(replenish);
             _context.SaveChanges();
 
@@ -84,7 +99,7 @@ namespace SADL
             var inventory = from item in _context.LineItems
                         join store in filterStore on item.LineItemStoreId equals store.StoreID
                         join product in _context.Products on item.LineItemProductId equals product.ProductId
-                        select new LineItem { Item = product.ProductName, Quantity = (int)item.LineItemQuantity };
+                        select new LineItem { ID = item.LineItemId, Item = product.ProductName, Quantity = (int)item.LineItemQuantity };
 
             return inventory.ToList();
         }

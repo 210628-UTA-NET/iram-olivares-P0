@@ -8,7 +8,7 @@ namespace SAModels
 
         public override string ToString()
         {
-            return $"==================\nItem: {Item}\nQuantity: {Quantity}\n==================";
+            return $"Item: {Item}\nQuantity: {Quantity}";
         }
     }
 }

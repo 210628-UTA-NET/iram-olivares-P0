@@ -17,6 +17,16 @@ namespace SABL
             return _storeRepo.GetAllStores();
         }
 
+        public double GetItemPrice(LineItem p_item)
+        {
+            return _storeRepo.GetItemPrice(p_item);
+        }
+
+        public LineItem GetOneItem(string p_itemName, StoreFront p_store)
+        {
+            return _storeRepo.GetOneItem(p_itemName, p_store);
+        }
+
         public StoreFront GetOneStore(int p_storeID)
         {
             return _storeRepo.GetOneStore(p_storeID);

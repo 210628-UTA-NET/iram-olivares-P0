@@ -30,6 +30,14 @@ namespace SABL
         List<LineItem> ViewInventory(StoreFront p_store);
 
         /// <summary>
+        /// Retrieves an Item from a store's inventory
+        /// </summary>
+        /// <param name="p_itemName"> Name of the item requested </param>
+        /// <param name="p_store"> Specified store to search through </param>
+        /// <returns> Searches through the database for an item and store match </returns>
+        LineItem GetOneItem(string p_itemName, StoreFront p_store);
+
+        /// <summary>
         /// Allows the user to replenish an item in a store
         /// </summary>
         /// <param name="p_store"> Takes in a store that needs resupply </param>
@@ -37,5 +45,12 @@ namespace SABL
         /// <param name="p_amount"> The number of items to be added </param>
         /// <returns> Will return the newly replenished inventory </returns>
         List<LineItem> ReplenishInventory(StoreFront p_store, LineItem p_item, int p_amount);
+
+        /// <summary>
+        /// Get the price of a specified item
+        /// </summary>
+        /// <param name="p_item"> Takes in a line item as an input </param>
+        /// <returns> Returns the item price in double format </returns>
+        double GetItemPrice(LineItem p_item);
     }
 }

@@ -70,6 +70,9 @@ namespace StoreAppUI
                     case AvailableMenu.OrderItem:
                         storeMenu = menuFactory.GetMenu(AvailableMenu.OrderItem);
                         break;
+                    case AvailableMenu.ConfirmOrder:
+                        storeMenu = menuFactory.GetMenu(AvailableMenu.ConfirmOrder);
+                        break;
                     default:
                         Console.WriteLine("Invalid Input");
                         Thread.Sleep(1000);

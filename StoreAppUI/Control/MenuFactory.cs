@@ -5,6 +5,7 @@ using SABL;
 using SADL;
 using Entity = SADL.Entities;
 using SAModels;
+using System.Collections.Generic;
 
 namespace StoreAppUI
 {
@@ -14,14 +15,19 @@ namespace StoreAppUI
         public static int chosenStore;
         public static string chosenCustomer;
         public static Customer tempCustomer = new Customer();
-        public static void ResetParams()
+        public static Order tempOrder = new Order();
+        public static StoreFront tempStore = new StoreFront();
+        public static List<LineItem> tempInventory = new List<LineItem>();
+        public static List<LineItem> dbInventory = new List<LineItem>();
+        private void ReInitialize()
         {
             chosenStore = 0;
             chosenCustomer = "";
-            tempCustomer.Name = "";
-            tempCustomer.Address = "";
-            tempCustomer.Email = "";
-            tempCustomer.Phone = "";
+            tempCustomer = new Customer();
+            tempOrder = new Order();
+            tempStore = new StoreFront();
+            tempInventory = new List<LineItem>();
+            dbInventory = new List<LineItem>();
         }
         public IMenu GetMenu(AvailableMenu p_menu)
         {
@@ -40,6 +46,7 @@ namespace StoreAppUI
                 case AvailableMenu.MainMenu:
                     return new MainMenu();
                 case AvailableMenu.StoreMenu:
+                    this.ReInitialize();
                     return new StoreMenu();
                 case AvailableMenu.AddCustomer:
                     return new AddCustomer(new CustomerBL(new CustomerRepo(new Entity.ieoDemoDBContext(options))));
@@ -52,8 +59,15 @@ namespace StoreAppUI
                 case AvailableMenu.ShowStoreInventory:
                     return new ShowStoreInventory(new StoreFrontBL(new StoreFrontRepo(new Entity.ieoDemoDBContext(options))));
                 case AvailableMenu.OrderSetup:
-                    return new OrderSetup(new CustomerBL(new CustomerRepo(new Entity.ieoDemoDBContext(options))), new StoreFrontBL(new StoreFrontRepo(new Entity.ieoDemoDBContext(options))));
-                    
+                    return new OrderSetup(new CustomerBL(new CustomerRepo(new Entity.ieoDemoDBContext(options))), 
+                                          new StoreFrontBL(new StoreFrontRepo(new Entity.ieoDemoDBContext(options))));
+                case AvailableMenu.OrderItem:
+                    return new OrderItem(new CustomerBL(new CustomerRepo(new Entity.ieoDemoDBContext(options))), 
+                                         new StoreFrontBL(new StoreFrontRepo(new Entity.ieoDemoDBContext(options))), 
+                                         new OrderBL(new OrderRepo(new Entity.ieoDemoDBContext(options))));
+                case AvailableMenu.ConfirmOrder:
+                    return new ConfirmOrder(new StoreFrontBL(new StoreFrontRepo(new Entity.ieoDemoDBContext(options))),
+                                            new OrderBL(new OrderRepo(new Entity.ieoDemoDBContext(options))));
                 default:
                     return null;
             }

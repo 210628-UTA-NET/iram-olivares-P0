@@ -34,12 +34,19 @@ namespace SADL
         LineItem GetOneItem(string p_itemName, StoreFront p_store);
 
         /// <summary>
-        /// Allows the user to replenish an item in a store
+        /// Allows the user to replenish an item in a store. Will also allow for removal of items if a Customer places an order
         /// </summary>
         /// <param name="p_store"> Takes in a store that needs resupply </param>
-        /// <param name="p_item"> Takes in the item to be replenished </param>
-        /// <param name="p_amount"> The number of items to be added </param>
-        /// <returns> Will return the newly replenished inventory </returns>
+        /// <param name="p_item"> Takes in the item to be replenished or removed </param>
+        /// <param name="p_amount"> The number of items to be added or removed </param>
+        /// <returns> Will return the newly updated inventory </returns>
         List<LineItem> ReplenishInventory(StoreFront p_store, LineItem p_item, int p_amount);
+
+        /// <summary>
+        /// Get the price of a specified item
+        /// </summary>
+        /// <param name="p_item"> Takes in a line item as an input </param>
+        /// <returns> Returns the item price in double format </returns>
+        double GetItemPrice(LineItem p_item);
     }
 }
