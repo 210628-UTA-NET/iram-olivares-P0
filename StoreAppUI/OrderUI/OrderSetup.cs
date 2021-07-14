@@ -28,7 +28,8 @@ namespace StoreAppUI
                     if (MenuFactory.chosenStore == 0 || MenuFactory.chosenCustomer == "")
                     {
                         Console.WriteLine("Please Fill Out All Fields");
-                        Thread.Sleep(1000);
+                        Console.Write("Enter Any Key to Return: ");
+                        Console.ReadLine();
                         return AvailableMenu.OrderSetup;
                     }
                     MenuFactory.dbInventory = _storeBL.ViewInventory(MenuFactory.tempStore);
@@ -44,7 +45,8 @@ namespace StoreAppUI
                     catch(System.Exception)
                     {
                         Console.WriteLine("Please Enter an Existing Store ID");
-                        Thread.Sleep(1000);
+                        Console.Write("Enter Any Key to Return: ");
+                        Console.ReadLine();
                         return AvailableMenu.OrderSetup;
                     }
                     checkStore = _storeBL.GetOneStore(MenuFactory.chosenStore);
@@ -52,7 +54,8 @@ namespace StoreAppUI
                     {
                         Console.WriteLine("Please Enter an Existing Store ID");
                         MenuFactory.chosenStore = 0;
-                        Thread.Sleep(1000);
+                        Console.Write("Enter Any Key to Return: ");
+                        Console.ReadLine();
                         return AvailableMenu.OrderSetup;
                     }
                     MenuFactory.tempStore = checkStore;
@@ -65,7 +68,8 @@ namespace StoreAppUI
                     if (checkCustomer == null)
                     {
                         Console.WriteLine("Please Enter an Existing Customer's Email");
-                        Thread.Sleep(1000);
+                        Console.Write("Enter Any Key to Return: ");
+                        Console.ReadLine();
                         return AvailableMenu.OrderSetup;
                     }
                     MenuFactory.chosenCustomer = input;
@@ -74,7 +78,8 @@ namespace StoreAppUI
 
                 default:
                     Console.WriteLine("Invalid Input");
-                    Thread.Sleep(1000);
+                    Console.Write("Enter Any Key to Return: ");
+                    Console.ReadLine();
                     return AvailableMenu.OrderSetup;
             }
         }

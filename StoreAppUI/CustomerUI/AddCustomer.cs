@@ -39,7 +39,8 @@ namespace StoreAppUI
                 case "1":
                     _customerBL.AddCustomer(MenuFactory.tempCustomer);
                     Console.WriteLine("Customer Successfully Added!");
-                    Thread.Sleep(1000);
+                    Console.Write("Enter Any Key to Return: ");
+                    Console.ReadLine();
                     return AvailableMenu.StoreMenu;
 
                 case "a" or "A" :
@@ -67,8 +68,8 @@ namespace StoreAppUI
                     return AvailableMenu.AddCustomer;
 
                 default:
-                    Console.WriteLine("Invalid Input");
-                    Thread.Sleep(1000);
+                    Console.Write("Enter Any Key to Return: ");
+                    Console.ReadLine();
                     return AvailableMenu.AddCustomer;
             }
         }

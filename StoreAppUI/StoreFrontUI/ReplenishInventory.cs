@@ -27,7 +27,8 @@ namespace StoreAppUI
                     if (MenuFactory.tempItem == null)
                     {
                         Console.WriteLine("Please Fill The Fields Below");
-                        Thread.Sleep(1000);
+                        Console.Write("Enter Any Key to Return: ");
+                        Console.ReadLine();
                         return AvailableMenu.ReplenishInventory;
                     }
 
@@ -45,7 +46,8 @@ namespace StoreAppUI
                     catch(System.Exception)
                     {
                         Console.WriteLine("Please Enter an Existing Store ID");
-                        Thread.Sleep(1000);
+                        Console.Write("Enter Any Key to Return: ");
+                        Console.ReadLine();
                         return AvailableMenu.ReplenishInventory;
                     }
                     checkStore = _storeBL.GetOneStore(MenuFactory.chosenStore);
@@ -53,7 +55,8 @@ namespace StoreAppUI
                     {
                         Console.WriteLine("Please Enter an Existing Store ID");
                         MenuFactory.chosenStore = 0;
-                        Thread.Sleep(1000);
+                        Console.Write("Enter Any Key to Return: ");
+                        Console.ReadLine();
                         return AvailableMenu.ReplenishInventory;
                     }
                     MenuFactory.tempStore = checkStore;
@@ -63,7 +66,8 @@ namespace StoreAppUI
                     if (MenuFactory.chosenStore == 0)
                     {
                         Console.WriteLine("Please Enter a Store ID First");
-                        Thread.Sleep(1000);
+                        Console.Write("Enter Any Key to Return: ");
+                        Console.ReadLine();
                         return AvailableMenu.ReplenishInventory;
                     }
 
@@ -74,7 +78,8 @@ namespace StoreAppUI
                     if (checkItem == null)
                     {
                         Console.WriteLine("No Such Item In The Store!");
-                        Thread.Sleep(1000);
+                        Console.Write("Enter Any Key to Return: ");
+                        Console.ReadLine();
                         return AvailableMenu.ReplenishInventory;
                     }
 
@@ -88,13 +93,15 @@ namespace StoreAppUI
                     catch(System.Exception)
                     {
                         Console.WriteLine("Please Enter a Positive Integer");
-                        Thread.Sleep(1000);
+                        Console.Write("Enter Any Key to Return: ");
+                        Console.ReadLine();
                         return AvailableMenu.ReplenishInventory;
                     }
                     if (MenuFactory.amount == 0)
                     {
                         Console.WriteLine("Please Enter a Positive Integer");
-                        Thread.Sleep(1000);
+                        Console.Write("Enter Any Key to Return: ");
+                        Console.ReadLine();
                         return AvailableMenu.ReplenishInventory;
                     }
                     
@@ -103,7 +110,8 @@ namespace StoreAppUI
 
                 default:
                     Console.WriteLine("Invalid Input");
-                    Thread.Sleep(1000);
+                    Console.Write("Enter Any Key to Return: ");
+                    Console.ReadLine();
                     return AvailableMenu.ReplenishInventory;
             }
         }

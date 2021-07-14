@@ -23,12 +23,11 @@ namespace StoreAppUI
             {
                 Console.WriteLine(customer);
             }
-
-            Console.Write("Return to Store Menu With Any Key: ");
         }
 
         public AvailableMenu ChooseMenu()
         {
+            Console.Write("Enter Any Key to Return: ");
             Console.ReadLine();
             return AvailableMenu.StoreMenu;
         }

@@ -31,7 +31,8 @@ namespace StoreAppUI
                     if (MenuFactory.tempInventory.Count == 0)
                     {
                         Console.WriteLine("Please Add At Least One Item To Your Cart");
-                        Thread.Sleep(1000);
+                        Console.Write("Enter Any Key to Return: ");
+                        Console.ReadLine();
                         return AvailableMenu.OrderItem;
                     }
                     return AvailableMenu.ConfirmOrder;
@@ -45,7 +46,8 @@ namespace StoreAppUI
                     if (item == null)
                     {
                         Console.WriteLine("No Such Item In The Store!");
-                        Thread.Sleep(1000);
+                        Console.Write("Enter Any Key to Return: ");
+                        Console.ReadLine();
                         return AvailableMenu.OrderItem;
                     }
 
@@ -55,12 +57,13 @@ namespace StoreAppUI
                         if (inventoryItem.Item.Equals(item.Item))
                         {
                             Console.WriteLine("Item Already In The Cart!");
-                            Thread.Sleep(1000);
+                            Console.Write("Enter Any Key to Return: ");
+                            Console.ReadLine();
                             return AvailableMenu.OrderItem;
                         }
                     }
 
-                    Console.Write("How Many?: ");
+                    Console.Write("How Many Would You Like To Order?: ");
                     input = Console.ReadLine();
 
                     // Check if the input is a positive integer
@@ -71,12 +74,16 @@ namespace StoreAppUI
                     catch (System.Exception)
                     {
                         Console.WriteLine("Please Insert a Positive Integer");
-                        Thread.Sleep(1000);
+                        Console.Write("Enter Any Key to Return: ");
+                        Console.ReadLine();
                         return AvailableMenu.OrderItem;
                     }
                     if (amount == 0)
                     {
                         Console.WriteLine("Please Insert a Positive Integer");
+                        Console.Write("Enter Any Key to Return: ");
+                        Console.ReadLine();
+                        return AvailableMenu.OrderItem;
                     }
 
                     // Check if there are enough requested items
@@ -87,7 +94,8 @@ namespace StoreAppUI
                             if ((inventoryItem.Quantity - amount) < 0)
                             {
                                 Console.WriteLine("Not Enough Items!");
-                                Thread.Sleep(1000);
+                                Console.Write("Enter Any Key to Return: ");
+                                Console.ReadLine();
                                 return AvailableMenu.OrderItem;
                             }
                             else
@@ -103,7 +111,8 @@ namespace StoreAppUI
                     MenuFactory.tempOrder.Price += _storeBL.GetItemPrice(item) * amount;
 
                     Console.WriteLine(amount + " " + item.Item + " Successfully Added!");
-                    Thread.Sleep(1000);
+                    Console.Write("Enter Any Key to Return: ");
+                    Console.ReadLine();
                     return AvailableMenu.OrderItem;
 
                 case "b" or "B":
@@ -119,7 +128,8 @@ namespace StoreAppUI
                     catch(System.Exception)
                     {
                         Console.WriteLine("No Such Item In The Cart!");
-                        Thread.Sleep(1000);
+                        Console.Write("Enter Any Key to Return: ");
+                        Console.ReadLine();
                         return AvailableMenu.OrderItem;
                     }
 
@@ -139,19 +149,22 @@ namespace StoreAppUI
                             MenuFactory.tempOrder.Price -= inventoryItem.Quantity * _storeBL.GetItemPrice(item);
                             MenuFactory.tempInventory.Remove(inventoryItem);
                             Console.WriteLine(item.Item + " Successfully Removed!");
-                            Thread.Sleep(1000);
+                            Console.Write("Enter Any Key to Return: ");
+                            Console.ReadLine();
                             return AvailableMenu.OrderItem;
                         }
                     }
 
                     // Otherwise the item is not in the cart
                     Console.WriteLine("No Such Item In The Cart!");
-                    Thread.Sleep(1000);
+                    Console.Write("Enter Any Key to Return: ");
+                    Console.ReadLine();
                     return AvailableMenu.OrderItem;
 
                 default:
                     Console.WriteLine("Invalid Input");
-                    Thread.Sleep(1000);
+                    Console.Write("Enter Any Key to Return: ");
+                    Console.ReadLine();
                     return AvailableMenu.OrderItem;
             }
         }

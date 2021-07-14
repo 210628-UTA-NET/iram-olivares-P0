@@ -47,7 +47,8 @@ namespace StoreAppUI
                         return AvailableMenu.ShowStoreInventory;
                     }
                     Console.WriteLine("Invalid Input");
-                    Thread.Sleep(1000);
+                    Console.Write("Enter Any Key to Return: ");
+                    Console.ReadLine();
                     return AvailableMenu.ShowAllStores;
             }
         }

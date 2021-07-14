@@ -38,7 +38,8 @@ namespace StoreAppUI
             catch (System.Exception)
             {
                 Console.WriteLine("Customer Not Found!");
-                Thread.Sleep(1000);
+                Console.Write("Enter Any Key to Return: ");
+                Console.ReadLine();
 
                 return AvailableMenu.SearchForCustomer;
             }

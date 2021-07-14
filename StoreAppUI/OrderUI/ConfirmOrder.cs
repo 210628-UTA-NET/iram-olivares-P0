@@ -36,12 +36,14 @@ namespace StoreAppUI
                         MenuFactory.tempInventory = _storeBL.ReplenishInventory(MenuFactory.tempStore, item, 0);
                     }
                     Console.WriteLine("Order Placed!");
-                    Thread.Sleep(1000);
+                    Console.Write("Enter Any Key to Return: ");
+                    Console.ReadLine();
                     return AvailableMenu.StoreMenu;
                     
                 default:
                     Console.WriteLine("Invalid Input");
-                    Thread.Sleep(1000);
+                    Console.Write("Enter Any Key to Return: ");
+                    Console.ReadLine();
                     return AvailableMenu.ConfirmOrder;
             }
         }
