@@ -10,6 +10,7 @@ namespace StoreAppUI
         AddCustomer,
         ShowAllCustomers,
         SearchForCustomer,
+        ShowCustomerOrders,
         ShowAllStores,
         ShowStoreInventory,
         ShowStoreOrders,

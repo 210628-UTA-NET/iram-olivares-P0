@@ -34,10 +34,10 @@ namespace StoreAppUI
                         return AvailableMenu.ShowStoreOrders;
                     }
 
-                    List<Order> getOrder = new List<Order>();
-                    getOrder = _orderBL.GetStoreOrders(MenuFactory.tempStore);
+                    List<Order> getOrders = new List<Order>();
+                    getOrders = _orderBL.GetStoreOrders(MenuFactory.tempStore);
 
-                    if (getOrder.Count == 0)
+                    if (getOrders.Count == 0)
                     {
                         Console.WriteLine("Store Has No Orders!");
                         Console.Write("Enter Any Key to Return to Store Menu: ");
@@ -45,7 +45,7 @@ namespace StoreAppUI
                         return AvailableMenu.StoreMenu;
                     }
 
-                    foreach(Order order in getOrder)
+                    foreach(Order order in getOrders)
                     {
                         Console.WriteLine("==================");
                         Console.WriteLine(order);

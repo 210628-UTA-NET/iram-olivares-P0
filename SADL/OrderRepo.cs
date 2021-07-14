@@ -17,9 +17,10 @@ namespace SADL
         {
             List<Order> customerOrder = _context.Orders.Select(order => new Order()
             {
-                ID = order.OrderId,
+                ID = (int)order.OrderCustomerId,
+                OrderAddress = order.OrderLocation,
                 Price = (double)order.OrderPrice
-            }).ToList();
+            }).Where(check => p_customer.Id == check.ID).ToList();
 
             return customerOrder;
         }

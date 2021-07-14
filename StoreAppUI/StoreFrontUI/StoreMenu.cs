@@ -41,6 +41,8 @@ namespace StoreAppUI
                     return AvailableMenu.ReplenishInventory;
                 case "7":
                     return AvailableMenu.ShowStoreOrders;
+                case "8":
+                    return AvailableMenu.ShowCustomerOrders;
                 default:
                     Console.WriteLine("Invalid Input");
                     Thread.Sleep(1000);
