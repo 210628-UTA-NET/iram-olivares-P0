@@ -32,7 +32,7 @@ namespace StoreAppUI
                     }
 
                     MenuFactory.dbInventory = _storeBL.ReplenishInventory(MenuFactory.tempStore, MenuFactory.tempItem, (int)MenuFactory.amount);
-                    Console.WriteLine(MenuFactory.amount + " of " + MenuFactory.tempItem.Item + " Has Been Added To " + MenuFactory.tempStore.Name + "!");
+                    Console.WriteLine(MenuFactory.amount + MenuFactory.tempItem.Item + " Has Been Added To " + MenuFactory.tempStore.Name + "!");
                     Console.Write("Enter Any Key to Return: ");
                     Console.ReadLine();
                     return AvailableMenu.StoreMenu;
