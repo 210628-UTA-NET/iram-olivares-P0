@@ -14,18 +14,22 @@ namespace StoreAppUI
         public static string checker;
         public static int chosenStore;
         public static string chosenCustomer;
+        public static uint amount;
         public static Customer tempCustomer = new Customer();
         public static Order tempOrder = new Order();
         public static StoreFront tempStore = new StoreFront();
+        public static LineItem tempItem = new LineItem();
         public static List<LineItem> tempInventory = new List<LineItem>();
         public static List<LineItem> dbInventory = new List<LineItem>();
         private void ReInitialize()
         {
             chosenStore = 0;
             chosenCustomer = "";
+            amount = 0;
             tempCustomer = new Customer();
             tempOrder = new Order();
             tempStore = new StoreFront();
+            tempItem = new LineItem();
             tempInventory = new List<LineItem>();
             dbInventory = new List<LineItem>();
         }
@@ -41,6 +45,10 @@ namespace StoreAppUI
                 .UseSqlServer(connectionString)
                 .Options;
 
+            ICustomerBL customerBL = new CustomerBL(new CustomerRepo(new Entity.ieoDemoDBContext(options)));
+            IStoreFrontBL storeBL = new StoreFrontBL(new StoreFrontRepo(new Entity.ieoDemoDBContext(options)));
+            IOrderBL orderBL = new OrderBL(new OrderRepo(new Entity.ieoDemoDBContext(options)));
+
             switch (p_menu)
             {
                 case AvailableMenu.MainMenu:
@@ -49,25 +57,23 @@ namespace StoreAppUI
                     this.ReInitialize();
                     return new StoreMenu();
                 case AvailableMenu.AddCustomer:
-                    return new AddCustomer(new CustomerBL(new CustomerRepo(new Entity.ieoDemoDBContext(options))));
+                    return new AddCustomer(customerBL);
                 case AvailableMenu.ShowAllCustomers:
-                    return new ShowAllCustomers(new CustomerBL(new CustomerRepo(new Entity.ieoDemoDBContext(options))));
+                    return new ShowAllCustomers(customerBL);
                 case AvailableMenu.SearchForCustomer:
-                    return new SearchForCustomer(new CustomerBL(new CustomerRepo(new Entity.ieoDemoDBContext(options))));
+                    return new SearchForCustomer(customerBL);
                 case AvailableMenu.ShowAllStores:
-                    return new ShowAllStores(new StoreFrontBL(new StoreFrontRepo(new Entity.ieoDemoDBContext(options))));
+                    return new ShowAllStores(storeBL);
                 case AvailableMenu.ShowStoreInventory:
-                    return new ShowStoreInventory(new StoreFrontBL(new StoreFrontRepo(new Entity.ieoDemoDBContext(options))));
+                    return new ShowStoreInventory(storeBL);
                 case AvailableMenu.OrderSetup:
-                    return new OrderSetup(new CustomerBL(new CustomerRepo(new Entity.ieoDemoDBContext(options))), 
-                                          new StoreFrontBL(new StoreFrontRepo(new Entity.ieoDemoDBContext(options))));
+                    return new OrderSetup(customerBL, storeBL);
                 case AvailableMenu.OrderItem:
-                    return new OrderItem(new CustomerBL(new CustomerRepo(new Entity.ieoDemoDBContext(options))), 
-                                         new StoreFrontBL(new StoreFrontRepo(new Entity.ieoDemoDBContext(options))), 
-                                         new OrderBL(new OrderRepo(new Entity.ieoDemoDBContext(options))));
+                    return new OrderItem(customerBL, storeBL, orderBL);
                 case AvailableMenu.ConfirmOrder:
-                    return new ConfirmOrder(new StoreFrontBL(new StoreFrontRepo(new Entity.ieoDemoDBContext(options))),
-                                            new OrderBL(new OrderRepo(new Entity.ieoDemoDBContext(options))));
+                    return new ConfirmOrder(storeBL, orderBL);
+                case AvailableMenu.ReplenishInventory:
+                    return new ReplenishInventory(storeBL);
                 default:
                     return null;
             }

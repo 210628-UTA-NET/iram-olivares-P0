@@ -11,6 +11,7 @@ namespace StoreAppUI
             Console.WriteLine("Select Option and Press Enter");
             Console.WriteLine("[0] Exit");
             Console.WriteLine("[1] Store Menu");
+            Console.Write("Enter Input: ");
         }
 
         public AvailableMenu ChooseMenu()

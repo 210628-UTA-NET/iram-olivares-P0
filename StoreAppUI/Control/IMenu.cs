@@ -14,7 +14,8 @@ namespace StoreAppUI
         ShowStoreInventory,
         OrderItem,
         OrderSetup,
-        ConfirmOrder
+        ConfirmOrder,
+        ReplenishInventory
     }
     public interface IMenu{
         /// <summary>

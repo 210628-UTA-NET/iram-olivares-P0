@@ -10,6 +10,7 @@ namespace StoreAppUI
         private IOrderBL _orderBL;
         private ICustomerBL _customerBL;
         private IStoreFrontBL _storeBL;
+        private uint amount;
         public OrderItem(ICustomerBL p_customerBL, IStoreFrontBL p_storeBL, IOrderBL p_orderBL)
         {
             _customerBL = p_customerBL;
@@ -19,7 +20,7 @@ namespace StoreAppUI
         public AvailableMenu ChooseMenu()
         {
             string input = Console.ReadLine();
-            uint amount = 0;
+            amount = 0;
             LineItem item = new LineItem();
             switch (input)
             {

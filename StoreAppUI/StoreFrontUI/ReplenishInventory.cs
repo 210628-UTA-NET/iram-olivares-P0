@@ -1,0 +1,135 @@
+using SAModels;
+using SABL;
+using System;
+using System.Threading;
+
+namespace StoreAppUI
+{
+    public class ReplenishInventory : IMenu
+    {
+        private IStoreFrontBL _storeBL;
+        public ReplenishInventory(IStoreFrontBL p_storeBL)
+        {
+            _storeBL = p_storeBL;
+        }
+        public AvailableMenu ChooseMenu()
+        {
+            string input = Console.ReadLine();
+            StoreFront checkStore = new StoreFront();
+            LineItem checkItem = new LineItem();
+
+            switch(input)
+            {
+                case "0":
+                    return AvailableMenu.StoreMenu;
+
+                case "1":
+                    if (MenuFactory.tempItem == null)
+                    {
+                        Console.WriteLine("Please Fill The Fields Below");
+                        Thread.Sleep(1000);
+                        return AvailableMenu.ReplenishInventory;
+                    }
+
+                    MenuFactory.dbInventory = _storeBL.ReplenishInventory(MenuFactory.tempStore, MenuFactory.tempItem, (int)MenuFactory.amount);
+                    Console.WriteLine(MenuFactory.amount + " of " + MenuFactory.tempItem.Item + " Has Been Added To " + MenuFactory.tempStore.Name + "!");
+                    return AvailableMenu.StoreMenu;
+
+                case "a" or "A":
+                    Console.Write("Enter Store ID Number: ");
+                    input = Console.ReadLine();
+                    try
+                    {
+                        MenuFactory.chosenStore = Int32.Parse(input);
+                    }
+                    catch(System.Exception)
+                    {
+                        Console.WriteLine("Please Enter an Existing Store ID");
+                        Thread.Sleep(1000);
+                        return AvailableMenu.ReplenishInventory;
+                    }
+                    checkStore = _storeBL.GetOneStore(MenuFactory.chosenStore);
+                    if(checkStore == null)
+                    {
+                        Console.WriteLine("Please Enter an Existing Store ID");
+                        MenuFactory.chosenStore = 0;
+                        Thread.Sleep(1000);
+                        return AvailableMenu.ReplenishInventory;
+                    }
+                    MenuFactory.tempStore = checkStore;
+                    return AvailableMenu.ReplenishInventory;
+
+                case "b" or "B":
+                    if (MenuFactory.chosenStore == 0)
+                    {
+                        Console.WriteLine("Please Enter a Store ID First");
+                        Thread.Sleep(1000);
+                        return AvailableMenu.ReplenishInventory;
+                    }
+
+                    Console.Write("Enter Item to Replenish: ");
+                    input = Console.ReadLine();
+                    checkItem = _storeBL.GetOneItem(input, MenuFactory.tempStore);
+
+                    if (checkItem == null)
+                    {
+                        Console.WriteLine("No Such Item In The Store!");
+                        Thread.Sleep(1000);
+                        return AvailableMenu.ReplenishInventory;
+                    }
+
+                    Console.Write("Enter Amount to Replenish: ");
+                    input = Console.ReadLine();
+
+                    try
+                    {
+                        MenuFactory.amount = UInt32.Parse(input);
+                    }
+                    catch(System.Exception)
+                    {
+                        Console.WriteLine("Please Enter a Positive Integer");
+                        Thread.Sleep(1000);
+                        return AvailableMenu.ReplenishInventory;
+                    }
+                    if (MenuFactory.amount == 0)
+                    {
+                        Console.WriteLine("Please Enter a Positive Integer");
+                        Thread.Sleep(1000);
+                        return AvailableMenu.ReplenishInventory;
+                    }
+                    
+                    MenuFactory.tempItem = checkItem;
+                    return AvailableMenu.ReplenishInventory;
+
+                default:
+                    Console.WriteLine("Invalid Input");
+                    Thread.Sleep(1000);
+                    return AvailableMenu.ReplenishInventory;
+            }
+        }
+
+        public void CurrentMenu()
+        {
+            Console.WriteLine("==== Replenish Inventory ====");
+            Console.WriteLine("[0] Return to Store Menu");
+            Console.WriteLine("[1] Replenish Chosen Item (Fields Must Be Filled Below)");
+            if (MenuFactory.chosenStore == 0)
+            {
+                Console.WriteLine("[A] Store ID Number: ");
+            }
+            else
+            {
+                Console.WriteLine("[A] Store ID Number: " + MenuFactory.chosenStore);
+            }
+            if (MenuFactory.amount == 0)
+            {
+                Console.WriteLine("[B] Item to Replenish: ");
+            }
+            else
+            {
+                Console.WriteLine("[B] Item to Replenish: " + MenuFactory.amount + " of " + MenuFactory.tempItem.Item);
+            }
+            Console.Write("Enter Input: ");
+        }
+    }
+}

@@ -15,6 +15,8 @@ namespace StoreAppUI
             Console.WriteLine("[3] Search For a Customer");
             Console.WriteLine("[4] Show Available Stores");
             Console.WriteLine("[5] Place an Order");
+            Console.WriteLine("[6] Replenish Store Inventory");
+            Console.Write("Enter Input: ");
         }
 
         public AvailableMenu ChooseMenu()
@@ -35,6 +37,8 @@ namespace StoreAppUI
                     return AvailableMenu.ShowAllStores;
                 case "5":
                     return AvailableMenu.OrderSetup;
+                case "6":
+                    return AvailableMenu.ReplenishInventory;
                 default:
                     Console.WriteLine("Invalid Input");
                     Thread.Sleep(1000);
