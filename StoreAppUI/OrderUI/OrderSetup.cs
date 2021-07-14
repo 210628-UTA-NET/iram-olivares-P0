@@ -22,7 +22,7 @@ namespace StoreAppUI
             switch(input)
             {
                 case "0":
-                    return AvailableMenu.StoreMenu;
+                    return AvailableMenu.CustomerPortal;
                 case "1":
                     if (MenuFactory.chosenStore == 0 || MenuFactory.chosenCustomer == "")
                     {
@@ -86,7 +86,7 @@ namespace StoreAppUI
         public void CurrentMenu()
         {
             Console.WriteLine("==== Order Menu ====");
-            Console.WriteLine("[0] Return to Store Menu");
+            Console.WriteLine("[0] Return to Customer Portal");
             Console.WriteLine("[1] Proceed to Order Menu (Fields below must be filled)");
             if (MenuFactory.chosenStore == 0)
             {

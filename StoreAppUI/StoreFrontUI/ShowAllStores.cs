@@ -24,7 +24,7 @@ namespace StoreAppUI
                 Console.WriteLine(store);
             }
 
-            Console.WriteLine("[0] Return to Store Menu");
+            Console.WriteLine("[0] Return to Customer Portal");
             foreach (StoreFront store in stores)
             {
                 Console.WriteLine($"[{store.StoreID}] View {store.Name}'s Inventory");
@@ -38,7 +38,7 @@ namespace StoreAppUI
             switch(input)
             {
                 case "0":
-                    return AvailableMenu.StoreMenu;
+                    return AvailableMenu.CustomerPortal;
                 default: 
                     if (Regex.IsMatch(input, @"^[0-9]+$"))
                     {

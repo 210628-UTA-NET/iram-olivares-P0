@@ -22,7 +22,7 @@ namespace StoreAppUI
             switch(input)
                 {
                     case "0":
-                        return AvailableMenu.StoreMenu;
+                        return AvailableMenu.CustomerPortal;
 
                     case "1":
                         if (MenuFactory.chosenCustomer == null)
@@ -50,7 +50,7 @@ namespace StoreAppUI
                             Console.WriteLine("==================");
                         }
 
-                        Console.Write("Enter Any Key to Return to Store Menu: ");
+                        Console.Write("Enter Any Key to Return: ");
                         Console.ReadLine();
 
                         return AvailableMenu.StoreMenu;
@@ -82,7 +82,7 @@ namespace StoreAppUI
 
         public void CurrentMenu()
         {
-            Console.WriteLine("[0] Return to Store Menu");
+            Console.WriteLine("[0] Return to Customer Portal");
             Console.WriteLine("[1] View Customer Order History (Field Must Be Filled Below");
             Console.WriteLine("[A] Customer Email: " + MenuFactory.chosenCustomer);
             Console.Write("Enter Input: ");

@@ -20,7 +20,7 @@ namespace StoreAppUI
             switch(input)
             {
                 case "0":
-                    return AvailableMenu.StoreMenu;
+                    return AvailableMenu.CustomerPortal;
 
                 case "1":
                     return AvailableMenu.OrderItem;
@@ -37,7 +37,7 @@ namespace StoreAppUI
                     Console.WriteLine("Order Placed!");
                     Console.Write("Enter Any Key to Return: ");
                     Console.ReadLine();
-                    return AvailableMenu.StoreMenu;
+                    return AvailableMenu.CustomerPortal;
                     
                 default:
                     Console.WriteLine("Invalid Input");

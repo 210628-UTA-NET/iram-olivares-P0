@@ -24,7 +24,7 @@ namespace StoreAppUI
             switch (input)
             {
                 case "0":
-                    return AvailableMenu.StoreMenu;
+                    return AvailableMenu.CustomerPortal;
 
                 case "1":
                     if (MenuFactory.tempInventory.Count == 0)
@@ -185,8 +185,8 @@ namespace StoreAppUI
                 Console.WriteLine("==================");
             }
             Console.WriteLine("Total Price: $" + MenuFactory.tempOrder.Price);
-            Console.WriteLine("[0] Return to Store Menu");
-            Console.WriteLine("[1] Proceed to Confirmation (All Fields Below Must be Filled)");
+            Console.WriteLine("[0] Return to Customer Portal Without Saving");
+            Console.WriteLine("[1] Proceed to Confirmation (Requires a minimum of one item in the cart)");
             Console.WriteLine("[A] Add Item to Order");
             Console.WriteLine("[B] Remove Item from Order");
             Console.Write("Select Option: ");

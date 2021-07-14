@@ -16,7 +16,7 @@ namespace StoreAppUI
         public void CurrentMenu()
         {
             Console.WriteLine("==== Search For A Customer ====");
-            Console.WriteLine("[0] Return to Store Menu");
+            Console.WriteLine("[0] Return to Customer Portal");
             Console.Write("Insert Customer Email: ");
         }
         public AvailableMenu ChooseMenu()
@@ -24,7 +24,7 @@ namespace StoreAppUI
             string findMe = Console.ReadLine();
             if (findMe.Equals("0"))
             {
-                return AvailableMenu.StoreMenu;
+                return AvailableMenu.CustomerPortal;
             }
 
             Customer repoSearch = new Customer();
@@ -44,16 +44,9 @@ namespace StoreAppUI
             }
 
             Console.WriteLine(repoSearch);
-            Console.WriteLine("[0] Return to Store Menu");
-            string input = Console.ReadLine();
-
-            switch(input)
-            {
-                case "1":
-                    return AvailableMenu.OrderItem;
-                default:
-                    return AvailableMenu.StoreMenu;
-            }
+            Console.Write("Enter Any Key to Return: ");
+            Console.ReadLine();
+            return AvailableMenu.CustomerPortal;
         }
     }
 }

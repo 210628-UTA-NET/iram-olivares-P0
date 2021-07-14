@@ -56,6 +56,9 @@ namespace StoreAppUI
                 case AvailableMenu.StoreMenu:
                     this.ReInitialize();
                     return new StoreMenu();
+                case AvailableMenu.CustomerPortal:
+                    this.ReInitialize();
+                    return new CustomerPortal();
                 case AvailableMenu.AddCustomer:
                     return new AddCustomer(customerBL);
                 case AvailableMenu.ShowAllCustomers:

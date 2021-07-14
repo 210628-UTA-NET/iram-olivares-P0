@@ -6,15 +6,12 @@ namespace StoreAppUI
     {
         public void CurrentMenu()
         {
-            Console.WriteLine("==== Store Menu ====");
+            Console.WriteLine("==== Store Menu (Management Only) ====");
             Console.WriteLine("Select Option and Press Enter");
             Console.WriteLine("[0] Return to Main Menu");
-            Console.WriteLine("[1] Add Customer");
-            Console.WriteLine("[2] Show All Customers");
-            Console.WriteLine("[3] Search For a Customer");
-            Console.WriteLine("[4] Show Available Stores");
-            Console.WriteLine("[5] Place an Order");
-            Console.WriteLine("[6] Replenish Store Inventory");
+            Console.WriteLine("[1] Show All Customers");
+            Console.WriteLine("[2] Replenish Store Inventory");
+            Console.WriteLine("[3] Show A Store's Order History");
             Console.Write("Enter Input: ");
         }
 
@@ -27,21 +24,11 @@ namespace StoreAppUI
                 case "0":
                     return AvailableMenu.MainMenu;
                 case "1":
-                    return AvailableMenu.AddCustomer;
-                case "2":
                     return AvailableMenu.ShowAllCustomers;
-                case "3":
-                    return AvailableMenu.SearchForCustomer;
-                case "4":
-                    return AvailableMenu.ShowAllStores;
-                case "5":
-                    return AvailableMenu.OrderSetup;
-                case "6":
+                case "2":
                     return AvailableMenu.ReplenishInventory;
-                case "7":
+                case "3":
                     return AvailableMenu.ShowStoreOrders;
-                case "8":
-                    return AvailableMenu.ShowCustomerOrders;
                 default:
                     Console.WriteLine("Invalid Input");
                     Console.Write("Enter Any Key to Return: ");

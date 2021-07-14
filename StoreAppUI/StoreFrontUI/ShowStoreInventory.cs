@@ -15,9 +15,9 @@ namespace StoreAppUI
         }
         public AvailableMenu ChooseMenu()
         {
-            Console.WriteLine("Enter Any Input to Return to Store Menu");
+            Console.WriteLine("Enter Any Input to Return to Customer Portal");
             Console.ReadLine();
-            return AvailableMenu.StoreMenu;
+            return AvailableMenu.CustomerPortal;
         }
 
         public void CurrentMenu()

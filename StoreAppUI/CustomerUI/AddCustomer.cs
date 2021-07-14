@@ -16,7 +16,7 @@ namespace StoreAppUI
         {
             Console.WriteLine("==== Add Customer ====");
             Console.WriteLine("Select Option and Press Enter");
-            Console.WriteLine("[0] Return to Store Menu Without Saving");
+            Console.WriteLine("[0] Return to Customer Portal Without Saving");
             Console.WriteLine("[1] Add Customer to List (All Fields Below Must Be Filled)");
             Console.WriteLine("[A] Name: "+MenuFactory.tempCustomer.Name);
             Console.WriteLine("[B] Address: "+MenuFactory.tempCustomer.Address);
@@ -32,14 +32,14 @@ namespace StoreAppUI
             switch (input)
             {
                 case "0":
-                    return AvailableMenu.StoreMenu;
+                    return AvailableMenu.CustomerPortal;
 
                 case "1":
                     _customerBL.AddCustomer(MenuFactory.tempCustomer);
                     Console.WriteLine("Customer Successfully Added!");
                     Console.Write("Enter Any Key to Return: ");
                     Console.ReadLine();
-                    return AvailableMenu.StoreMenu;
+                    return AvailableMenu.CustomerPortal;
 
                 case "a" or "A" :
                     Console.Write("Enter Customer Name: ");
@@ -66,6 +66,7 @@ namespace StoreAppUI
                     return AvailableMenu.AddCustomer;
 
                 default:
+                    Console.WriteLine("Invalid Input");
                     Console.Write("Enter Any Key to Return: ");
                     Console.ReadLine();
                     return AvailableMenu.AddCustomer;
