@@ -85,7 +85,14 @@ namespace StoreAppUI
 
         public void CurrentMenu()
         {
-            Console.WriteLine("==== Order Menu ====");
+            Console.WriteLine(@"
+  ___ _                ___         _         
+ | _ \ |__ _ __ ___   / _ \ _ _ __| |___ _ _ 
+ |  _/ / _` / _/ -_) | (_) | '_/ _` / -_) '_|
+ |_| |_\__,_\__\___|  \___/|_| \__,_\___|_|  
+                                             
+");
+
             Console.WriteLine("[0] Return to Customer Portal");
             Console.WriteLine("[1] Proceed to Order Menu (Fields below must be filled)");
             if (MenuFactory.chosenStore == 0)

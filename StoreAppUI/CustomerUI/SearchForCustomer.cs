@@ -15,7 +15,14 @@ namespace StoreAppUI
         }
         public void CurrentMenu()
         {
-            Console.WriteLine("==== Search For A Customer ====");
+            Console.WriteLine(@"
+  ___                  _       ___        _                     
+ / __| ___ __ _ _ _ __| |_    / __|  _ __| |_ ___ _ __  ___ _ _ 
+ \__ \/ -_) _` | '_/ _| ' \  | (_| || (_-<  _/ _ \ '  \/ -_) '_|
+ |___/\___\__,_|_| \__|_||_|  \___\_,_/__/\__\___/_|_|_\___|_|  
+                                                                
+");
+
             Console.WriteLine("[0] Return to Customer Portal");
             Console.Write("Insert Customer Email: ");
         }
@@ -43,7 +50,9 @@ namespace StoreAppUI
                 return AvailableMenu.SearchForCustomer;
             }
 
+            Console.WriteLine("==================");
             Console.WriteLine(repoSearch);
+            Console.WriteLine("==================");
             Console.Write("Enter Any Key to Return: ");
             Console.ReadLine();
             return AvailableMenu.CustomerPortal;

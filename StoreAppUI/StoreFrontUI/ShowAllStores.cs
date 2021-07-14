@@ -15,13 +15,20 @@ namespace StoreAppUI
         }
         public void CurrentMenu()
         {
-            Console.WriteLine("List of Stores");
-
             List<StoreFront> stores = _storeBL.GetAllStores();
+
+            Console.WriteLine(@"
+  ___ _                  
+ / __| |_ ___ _ _ ___ ___
+ \__ \  _/ _ \ '_/ -_|_-<
+ |___/\__\___/_| \___/__/
+                         
+");
 
             foreach (StoreFront store in stores)
             {
                 Console.WriteLine(store);
+                Console.WriteLine("==================");
             }
 
             Console.WriteLine("[0] Return to Customer Portal");
@@ -29,6 +36,7 @@ namespace StoreAppUI
             {
                 Console.WriteLine($"[{store.StoreID}] View {store.Name}'s Inventory");
             }
+            Console.Write("Enter Input: ");
         }
 
         public AvailableMenu ChooseMenu()

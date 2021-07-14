@@ -6,7 +6,14 @@ namespace StoreAppUI
     {
         public void CurrentMenu()
         {
-            Console.WriteLine("==== Main Menu ====");
+            Console.WriteLine(@"
+  __  __      _        __  __              
+ |  \/  |__ _(_)_ _   |  \/  |___ _ _ _  _ 
+ | |\/| / _` | | ' \  | |\/| / -_) ' \ || |
+ |_|  |_\__,_|_|_||_| |_|  |_\___|_||_\_,_|
+                                           
+");
+
             Console.WriteLine("Select Option and Press Enter");
             Console.WriteLine("[0] Exit Application");
             Console.WriteLine("[1] Customer Portal");

@@ -32,7 +32,13 @@ namespace StoreAppUI
 
         public void CurrentMenu()
         {
-            Console.WriteLine("==== Welcome to the Customer Portal! ====");
+            Console.WriteLine(@"
+   ___        _                       ___         _        _ 
+  / __|  _ __| |_ ___ _ __  ___ _ _  | _ \___ _ _| |_ __ _| |
+ | (_| || (_-<  _/ _ \ '  \/ -_) '_| |  _/ _ \ '_|  _/ _` | |
+  \___\_,_/__/\__\___/_|_|_\___|_|   |_| \___/_|  \__\__,_|_|
+                                                             
+");
             Console.WriteLine("[0] Return to Main Menu");
             Console.WriteLine("[1] Add Your Account");
             Console.WriteLine("[2] Search For Your Account");

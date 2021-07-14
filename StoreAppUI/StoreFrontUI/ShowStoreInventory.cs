@@ -24,12 +24,21 @@ namespace StoreAppUI
         {
             StoreFront chosenStore = _storeBL.GetOneStore(MenuFactory.chosenStore);
             List<LineItem> inventory = _storeBL.ViewInventory(chosenStore);
-            Console.WriteLine($"{chosenStore.Name}'s Inventory");
+
+            Console.WriteLine(@"
+  ___                 _                
+ |_ _|_ ___ _____ _ _| |_ ___ _ _ _  _ 
+  | || ' \ V / -_) ' \  _/ _ \ '_| || |
+ |___|_||_\_/\___|_||_\__\___/_|  \_, |
+                                  |__/ 
+");
 
             foreach(LineItem item in inventory)
             {
                 Console.WriteLine(item);
+                Console.WriteLine("==================");
             }
+            Console.WriteLine("Current Store: " + chosenStore.Name);
         }
     }
 }

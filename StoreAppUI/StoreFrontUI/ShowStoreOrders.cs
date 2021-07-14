@@ -44,13 +44,21 @@ namespace StoreAppUI
                         return AvailableMenu.StoreMenu;
                     }
 
+                    Console.WriteLine(@"
+  ___ _                  ___         _            
+ / __| |_ ___ _ _ ___   / _ \ _ _ __| |___ _ _ ___
+ \__ \  _/ _ \ '_/ -_) | (_) | '_/ _` / -_) '_(_-<
+ |___/\__\___/_| \___|  \___/|_| \__,_\___|_| /__/
+                                                  
+");
+
                     foreach(Order order in getOrders)
                     {
-                        Console.WriteLine("==================");
                         Console.WriteLine(order);
                         Console.WriteLine("==================");
                     }
 
+                    Console.WriteLine("Store Name: " + MenuFactory.tempStore.Name);
                     Console.Write("Enter Any Key to Return to Store Menu: ");
                     Console.ReadLine();
 
@@ -92,7 +100,14 @@ namespace StoreAppUI
 
         public void CurrentMenu()
         {
-            Console.WriteLine("==== View Store Order History ====");
+            Console.WriteLine(@"
+  ___ _                  ___         _           _  _ _    _                
+ / __| |_ ___ _ _ ___   / _ \ _ _ __| |___ _ _  | || (_)__| |_ ___ _ _ _  _ 
+ \__ \  _/ _ \ '_/ -_) | (_) | '_/ _` / -_) '_| | __ | (_-<  _/ _ \ '_| || |
+ |___/\__\___/_| \___|  \___/|_| \__,_\___|_|   |_||_|_/__/\__\___/_|  \_, |
+                                                                       |__/ 
+");
+
             Console.WriteLine("[0] Return to Store Menu");
             Console.WriteLine("[1] View Store Order History (Field Must Be Filled Below)");
             if (MenuFactory.chosenStore == 0)

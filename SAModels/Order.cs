@@ -12,7 +12,7 @@ namespace SAModels
 
         public override string ToString()
         {
-            return $"Store Address: {OrderAddress}\nTotal Price: {Price}";
+            return $"Store Address: {OrderAddress}\nTotal Price: ${Price}";
         }
     }
 }

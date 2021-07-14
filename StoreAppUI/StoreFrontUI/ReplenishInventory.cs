@@ -33,6 +33,8 @@ namespace StoreAppUI
 
                     MenuFactory.dbInventory = _storeBL.ReplenishInventory(MenuFactory.tempStore, MenuFactory.tempItem, (int)MenuFactory.amount);
                     Console.WriteLine(MenuFactory.amount + " of " + MenuFactory.tempItem.Item + " Has Been Added To " + MenuFactory.tempStore.Name + "!");
+                    Console.Write("Enter Any Key to Return: ");
+                    Console.ReadLine();
                     return AvailableMenu.StoreMenu;
 
                 case "a" or "A":
@@ -117,7 +119,14 @@ namespace StoreAppUI
 
         public void CurrentMenu()
         {
-            Console.WriteLine("==== Replenish Inventory ====");
+            Console.WriteLine(@"
+  ___          _          _    _      ___                 _                
+ | _ \___ _ __| |___ _ _ (_)__| |_   |_ _|_ ___ _____ _ _| |_ ___ _ _ _  _ 
+ |   / -_) '_ \ / -_) ' \| (_-< ' \   | || ' \ V / -_) ' \  _/ _ \ '_| || |
+ |_|_\___| .__/_\___|_||_|_/__/_||_| |___|_||_\_/\___|_||_\__\___/_|  \_, |
+         |_|                                                          |__/ 
+");
+
             Console.WriteLine("[0] Return to Store Menu");
             Console.WriteLine("[1] Replenish Chosen Item (Fields Must Be Filled Below)");
             if (MenuFactory.chosenStore == 0)
@@ -134,7 +143,7 @@ namespace StoreAppUI
             }
             else
             {
-                Console.WriteLine("[B] Item to Replenish: " + MenuFactory.amount + " of " + MenuFactory.tempItem.Item);
+                Console.WriteLine("[B] Item to Replenish: " + MenuFactory.amount + MenuFactory.tempItem.Item);
             }
             Console.Write("Enter Input: ");
         }

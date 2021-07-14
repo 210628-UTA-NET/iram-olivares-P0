@@ -13,7 +13,7 @@ namespace SAModels
 
         public override string ToString()
         {
-            return $"==================\nID: {StoreID}\nName: {Name}\nAddress: {Address}\n==================";
+            return $"ID: {StoreID}\nName: {Name}\nAddress: {Address}";
         }
     }
 }

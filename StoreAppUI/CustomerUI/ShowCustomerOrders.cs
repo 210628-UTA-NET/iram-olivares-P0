@@ -25,7 +25,7 @@ namespace StoreAppUI
                         return AvailableMenu.CustomerPortal;
 
                     case "1":
-                        if (MenuFactory.chosenCustomer == null)
+                        if (MenuFactory.chosenCustomer == "")
                         {
                             Console.WriteLine("Please Enter a Customer Email");
                             Console.Write("Enter Any Key to Return: ");
@@ -38,22 +38,31 @@ namespace StoreAppUI
                         if (getOrders.Count == 0)
                         {
                             Console.WriteLine("Customer Has Not Placed Any Orders!");
-                            Console.Write("Enter Any Key to Return to Store Menu: ");
+                            Console.Write("Enter Any Key to Return to Customer Portal: ");
                             Console.ReadLine();
-                            return AvailableMenu.StoreMenu;
+                            return AvailableMenu.CustomerPortal;
                         }
+
+                        Console.Clear();
+                        Console.WriteLine(@"
+   ___         _            
+  / _ \ _ _ __| |___ _ _ ___
+ | (_) | '_/ _` / -_) '_(_-<
+  \___/|_| \__,_\___|_| /__/
+                            
+");
 
                         foreach(Order order in getOrders)
                         {
-                            Console.WriteLine("==================");
                             Console.WriteLine(order);
                             Console.WriteLine("==================");
                         }
 
+                        Console.WriteLine("Customer Name: " + MenuFactory.tempCustomer.Name);
                         Console.Write("Enter Any Key to Return: ");
                         Console.ReadLine();
 
-                        return AvailableMenu.StoreMenu;
+                        return AvailableMenu.CustomerPortal;
 
                     case "a" or "A":
                         Console.Write("Enter Customer Email: ");
@@ -82,8 +91,16 @@ namespace StoreAppUI
 
         public void CurrentMenu()
         {
+            Console.WriteLine(@"
+   ___        _                        ___         _            
+  / __|  _ __| |_ ___ _ __  ___ _ _   / _ \ _ _ __| |___ _ _ ___
+ | (_| || (_-<  _/ _ \ '  \/ -_) '_| | (_) | '_/ _` / -_) '_(_-<
+  \___\_,_/__/\__\___/_|_|_\___|_|    \___/|_| \__,_\___|_| /__/
+                                                                
+");
+
             Console.WriteLine("[0] Return to Customer Portal");
-            Console.WriteLine("[1] View Customer Order History (Field Must Be Filled Below");
+            Console.WriteLine("[1] View Customer Order History (Field Must Be Filled Below)");
             Console.WriteLine("[A] Customer Email: " + MenuFactory.chosenCustomer);
             Console.Write("Enter Input: ");
         }

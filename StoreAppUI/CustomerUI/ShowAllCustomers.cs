@@ -14,13 +14,20 @@ namespace StoreAppUI
         }
         public void CurrentMenu()
         {
-            Console.WriteLine("List of Customers");
+            Console.WriteLine(@"
+    _   _ _    ___        _                        
+   /_\ | | |  / __|  _ __| |_ ___ _ __  ___ _ _ ___
+  / _ \| | | | (_| || (_-<  _/ _ \ '  \/ -_) '_(_-<
+ /_/ \_\_|_|  \___\_,_/__/\__\___/_|_|_\___|_| /__/
+                                                   
+");
 
             List<Customer> customers = _customerBL.GetAllCustomers();
 
             foreach (Customer customer in customers)
             {
                 Console.WriteLine(customer);
+                Console.WriteLine("==================");
             }
         }
 

@@ -14,8 +14,14 @@ namespace StoreAppUI
         }
         public void CurrentMenu()
         {
-            Console.WriteLine("==== Add Customer ====");
-            Console.WriteLine("Select Option and Press Enter");
+            Console.WriteLine(@"
+    _      _    _    ___        _                     
+   /_\  __| |__| |  / __|  _ __| |_ ___ _ __  ___ _ _ 
+  / _ \/ _` / _` | | (_| || (_-<  _/ _ \ '  \/ -_) '_|
+ /_/ \_\__,_\__,_|  \___\_,_/__/\__\___/_|_|_\___|_|  
+                                                      
+");
+
             Console.WriteLine("[0] Return to Customer Portal Without Saving");
             Console.WriteLine("[1] Add Customer to List (All Fields Below Must Be Filled)");
             Console.WriteLine("[A] Name: "+MenuFactory.tempCustomer.Name);

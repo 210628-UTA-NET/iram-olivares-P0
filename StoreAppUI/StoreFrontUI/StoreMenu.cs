@@ -6,8 +6,14 @@ namespace StoreAppUI
     {
         public void CurrentMenu()
         {
-            Console.WriteLine("==== Store Menu (Management Only) ====");
-            Console.WriteLine("Select Option and Press Enter");
+            Console.WriteLine(@"
+  __  __                               ___         _        _ 
+ |  \/  |__ _ _ _  __ _ __ _ ___ _ _  | _ \___ _ _| |_ __ _| |
+ | |\/| / _` | ' \/ _` / _` / -_) '_| |  _/ _ \ '_|  _/ _` | |
+ |_|  |_\__,_|_||_\__,_\__, \___|_|   |_| \___/_|  \__\__,_|_|
+                       |___/                                  
+");
+
             Console.WriteLine("[0] Return to Main Menu");
             Console.WriteLine("[1] Show All Customers");
             Console.WriteLine("[2] Replenish Store Inventory");

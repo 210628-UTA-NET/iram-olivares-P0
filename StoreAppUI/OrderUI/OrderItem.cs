@@ -170,7 +170,14 @@ namespace StoreAppUI
 
         public void CurrentMenu()
         {
-            Console.WriteLine("==== Order Menu ====");
+            Console.WriteLine(@"
+  ___ _                ___         _         
+ | _ \ |__ _ __ ___   / _ \ _ _ __| |___ _ _ 
+ |  _/ / _` / _/ -_) | (_) | '_/ _` / -_) '_|
+ |_| |_\__,_\__\___|  \___/|_| \__,_\___|_|  
+                                             
+");
+
             Console.WriteLine("Customer: " + MenuFactory.tempCustomer.Name);
             Console.WriteLine("Ordering From: " + MenuFactory.tempStore.Name);
             Console.WriteLine("Checkout Items: ");
