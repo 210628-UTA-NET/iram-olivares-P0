@@ -74,6 +74,8 @@ namespace StoreAppUI
                     return new ConfirmOrder(storeBL, orderBL);
                 case AvailableMenu.ReplenishInventory:
                     return new ReplenishInventory(storeBL);
+                case AvailableMenu.ShowStoreOrders:
+                    return new ShowStoreOrders(storeBL, orderBL);
                 default:
                     return null;
             }

@@ -9,5 +9,10 @@ namespace SAModels
         List<LineItem> OrderItems { get; set; }
         public string OrderAddress { get; set; }
         public double Price { get; set; }
+
+        public override string ToString()
+        {
+            return $"Store Address: {OrderAddress}\nTotal Price: {Price}";
+        }
     }
 }

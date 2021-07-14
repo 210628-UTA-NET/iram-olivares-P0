@@ -12,6 +12,7 @@ namespace StoreAppUI
         SearchForCustomer,
         ShowAllStores,
         ShowStoreInventory,
+        ShowStoreOrders,
         OrderItem,
         OrderSetup,
         ConfirmOrder,
