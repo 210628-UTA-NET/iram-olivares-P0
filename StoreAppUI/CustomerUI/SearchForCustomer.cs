@@ -1,7 +1,6 @@
 using System;
 using SABL;
 using SAModels;
-using System.Threading;
 
 namespace StoreAppUI
 {
