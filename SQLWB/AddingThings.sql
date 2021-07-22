@@ -34,3 +34,8 @@ INSERT INTO Stores VALUES
 	INSERT INTO LineItems VALUES
 	(2, 6, 50),
 	(2, 11, 25)
+	
+-- Add two items to the first store
+	INSERT INTO LineItems VALUES
+	(1, 12, 200),
+	(1, 3, 100)
